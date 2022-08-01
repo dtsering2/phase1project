@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myPOMODORO</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script></script>
+</head>
+<body>
+    <!--TOP PART OF THE HEADER WITH THE LOGO, LOGIN BUTTON, AND -->
+    <header>
+            <div id = "mainBar">
+                <h1 id = "logo">myPOMODORO</h1>
+                <button id = "settings"><b>Settings</b></button>
+                <button id = "login"><b>Login</b></button>
+            </div>
+            <!--Login and sign up forms-->
+            <div id = "formContainer">
+                <div id = "formHidden">
+                    <b><p class = "title">Please enter your info</p></b>
+                    <div id="pad">
+                        <form id = "loginForm">
+                            <label class = "infoForm">USERNAME</label>
+                            <input class ="infoInput" type = "text" name = "username" >
+                            <label class = "infoForm">PASSWORD</label>
+                            <input class ="infoInput"type = "text" name = "password">
+                            <span>
+                                <button id = "signUp" class ="formClick">Sign up</button>
+                                <input type = "submit" id ="submitLogin" class ="formClick"value = "Login">
+                            </span>
+                        </form>
+                    </div>
+                </div>
+                
+                <div id = "formHidden">
+                    <b><p class = "title"> Create an Account</p></b>
+                    <div id="pad">
+                        <form id = "signupForm" >
+                            <label class = "infoForm">USERNAME</label>
+                            <input class ="infoInput"type = "text" name = "username" >
+                            <label class = "infoForm">PASSWORD</label>
+                            <input class ="infoInput"type = "text" name = "password">
+                            <label class = "infoForm"></labelclass>CONFIRM PASSWORD</label>
+                            <input class ="infoInput"type = "text" name = "password">
+                            <span>
+                                <button id = "signIn"class ="formClick">Sign in</button>
+                                <input type = "submit" id ="submitCreate" class ="formClick"value = "Create Account">
+                            </span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </header>
+
+
+
+<!--Timer border: 10px solid white;
+    background-color: white;
+    border-radius: 10px;
+    padding-top: 50px;
+    padding-bottom:50px;
+    padding-right:50px;
+    padding-left:50px;-->
+<div id = "timerContainer">
+
+</div>
+
+
+</body>
+</html>
