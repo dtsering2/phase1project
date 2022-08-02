@@ -104,3 +104,34 @@ const formContainer = document.querySelector('div.formContainer')
             });
         });
     })
+
+
+
+
+
+    //Karl's code
+   
+
+    async function getAllQuotes() {
+       let res = await fetch('https://type.fit/api/quotes');
+       let data = await res.json() ;
+         allQuotes = data;
+         renderOneQuote(data)
+    }
+    
+    
+    getAllQuotes()
+
+    function renderOneQuote() {
+        let randomQuote = allQuotes[Math.floor(Math.random() * allQuotes.length)];
+        console.log(randomQuote);
+        let textOfQuote = document.querySelector('#quoteText');
+        let authorOfQuote = document.querySelector('#quoteAuthor');
+        textOfQuote.innerText = `"${randomQuote.text}"`;
+        if (randomQuote.author != null ) {authorOfQuote.innerText = `- ${randomQuote.author}`}
+        else {authorOfQuote.innerText = ``};
+        setTimeout(renderOneQuote, 120000);
+    }
+
+
+   
