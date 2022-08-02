@@ -87,14 +87,11 @@ const formContainer = document.querySelector('div.formContainer')
             //sumbit-> boolean if pass & confirm pass match => true
                             //post new user into index.json
                             //send a new alert "Welcome to myPOMODORO!"
-                            //after 1.5 sec render page without form
                   //-> boolean if pass & confirm pass no match => false
                             //send a alert "Password doesn't match"
                             //reset form 
 
-
-
-        //want to access
+        //cant access this element unless its loaded after button clicked
         document.addEventListener("DOMContentLoaded", ()=>{
             //event listener to exit log in form
             loginCancel.addEventListener('click',()=>{
@@ -105,33 +102,68 @@ const formContainer = document.querySelector('div.formContainer')
         });
     })
 
+//Random quote generator
+async function getAllQuotes() {
+    let res = await fetch('https://type.fit/api/quotes');
+    let data = await res.json() ;
+    allQuotes = data;
+    renderOneQuote(data)
+}
+
+function renderOneQuote() {
+    let randomQuote = allQuotes[Math.floor(Math.random() * allQuotes.length)];
+    console.log(randomQuote);
+    let textOfQuote = document.querySelector('#quoteText');
+    let authorOfQuote = document.querySelector('#quoteAuthor');
+    textOfQuote.innerText = `"${randomQuote.text}"`;
+    if (randomQuote.author != null ) {authorOfQuote.innerText = ` - ${randomQuote.author}`}
+    else {authorOfQuote.innerText = ``};
+    setTimeout(renderOneQuote, 120000);
+}
+getAllQuotes()
 
 
 
 
-    //Karl's code
-   
+// Karl's code sign up form
+document.querySelector('#signupForm').addEventListener("submit", (e) => {
+    e.preventDefault()
+    createAnAccount()})
 
-    async function getAllQuotes() {
-       let res = await fetch('https://type.fit/api/quotes');
-       let data = await res.json() ;
-         allQuotes = data;
-         renderOneQuote(data)
+async function createAnAccount() {
+    const usernameSubmitForm = document.querySelector('#usernameSubmitForm');
+    const passwordSubmitForm = document.querySelector('#passwordSubmitForm');
+    const confirmPasswordSubmitForm = document.querySelector('#confirmPasswordSubmitForm');
+
+    objNewInfoSingUp = {
+        loginInfo: {
+        username: usernameSubmitForm.value,
+        password: passwordSubmitForm.value
+        },
+        startWorkTimer: 25,
+        shortBreakTimer: 5,
+        longBreakTimer: 10,
+        cycleCompleted: 0,
+        Tasks: []
     }
-    
-    
-    getAllQuotes()
 
-    function renderOneQuote() {
-        let randomQuote = allQuotes[Math.floor(Math.random() * allQuotes.length)];
-        console.log(randomQuote);
-        let textOfQuote = document.querySelector('#quoteText');
-        let authorOfQuote = document.querySelector('#quoteAuthor');
-        textOfQuote.innerText = `"${randomQuote.text}"`;
-        if (randomQuote.author != null ) {authorOfQuote.innerText = `- ${randomQuote.author}`}
-        else {authorOfQuote.innerText = ``};
-        setTimeout(renderOneQuote, 120000);
+    if (passwordSubmitForm.value === confirmPasswordSubmitForm.value ) {
+        updateYourPasswordAndName(objNewInfoSingUp);
+        formContainer.setAttribute('id','formHidden');
+        signupContainer.setAttribute('id','formHidden');
+        timerparentContainer.setAttribute('id', "timerParentContainer");
+        
+    } else {
+        document.querySelector('#signupForm').reset();
     }
+}
 
-
-   
+async function updateYourPasswordAndName(objNewInfoSingUp) {
+     let res = await fetch('http://localhost:3000/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(objNewInfoSingUp)
+    });
+    let data = await res.json() ;
+    console.log(data);
+}

@@ -54,11 +54,11 @@
                     <div id="pad">
                         <form id = "signupForm" >
                             <label class = "infoForm">USERNAME</label>
-                            <input class ="infoInput"type = "text" name = "username" >
-                            <label class = "infoForm">PASSWORD</label>
-                            <input class ="infoInput"type = "password" name = "password">
+                            <input class ="infoInput"type = "text" name = "username" id ="usernameSubmitForm" >
+                            <label class = "infoForm"  >PASSWORD</label>
+                            <input class ="infoInput"type = "password" name = "password" id ="passwordSubmitForm">
                             <label class = "infoForm"></labelclass>CONFIRM PASSWORD</label>
-                            <input class ="infoInput"type = "password" name = "password">
+                            <input class ="infoInput"type = "password" name = "password" id ="confirmPasswordSubmitForm">
                             <input type = "submit" id ="submitCreate" class ="formClick"value = "Create Account">
                             <button id = "cancel" class = "formClick" class="signinCancelBtn">Go Back</button>
                         </form>
@@ -76,29 +76,38 @@
         </div>
         <div id = "timerContainer">
             <span id= "timerMin" class = "timer">25</span>
-            <span id ="TimerSec" class = "timer">:00</span>
+            <span class = "timer">:</span>
+            <span id ="timerSec" class = "timer">00</span>
         </div>
-        <div id = pauseAndPlayContainer>
+        <div id = "pauseAndPlayContainer">
             <button id = "startTimer">Start</button>
             <button id = "pauseTimer">Pause</button>
-
         </div>
         <div id = "timerFooter">
-            <span class = "pomodoro">Complete Cycle:</span> 
-            <span class = "pomodoro" id ="completeCycle">1</span>
+            <p>
+                <span class = "pomodoro">Complete Cycle</span> 
+                <span class = "pomodoro" >:&nbsp;</span>
+                <span class = "pomodoro" id ="completeCycle">
+                <!--want this to be blank and have it dynamically change from js once counter for study and break both ===1-->
+                1</span>
+            </p>
         </div>
     </div>
 </div>
-<div id = "quotesContainer">
-    <ul>
-        <p id = "quoteText">
-            Genius is one percent inspiration and ninety-nine percent perspiration.
-        </p>
-        <p id = "quoteAuthor">
-            Thomas Edison
-        </p>
-    </ul>
+<div id = "quotesParentContainer">
+    <div id = "quotesChildContainer">
+        <em>
+            <p id = "quoteText">Genius is one percent inspiration and ninety-nine percent perspiration.&nbsp;<br>
+                <span><p id = "quoteAuthor">Thomas Edison</p></span>
+            </p>
+        </em>
+    </div>
 </div>
+<!-- <div>
+    <iframe style="border-radius:12px" 
+    src="https://open.spotify.com/embed/playlist/3WLDIcG4Cx2UOPy0rbFhQn?utm_source=generator" 
+    width="20%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+</div> -->
     <script defer src = index.js></script>
 </body>
 </html>

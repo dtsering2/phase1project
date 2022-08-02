@@ -236,3 +236,24 @@ h3 {
     height: max-content;
     padding-top: 30px;
 }
+
+#quotesParentContainer{
+    margin: auto;
+    width: auto;
+    height: auto;
+}
+
+#quotesChildContainer{
+    margin:0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+}
+#quoteText, #quoteAuthor{
+    color: white;
+    font-family: "Poppins"
+}
+#quoteAuthor{
+    text-align: center;
+}
