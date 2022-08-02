@@ -94,15 +94,15 @@ label{
 
 #formContainer{
     position: relative;
-    width: 300px;
+    width: auto;
     height: 450px;
-    margin-left: 40%;
+    margin: auto;
     display: block;
-
 }
 
 #loginContainer, #signupContainer, #settingContainer{
     width: 360px;
+    margin: 0 auto;
     position:relative;
     display: block;
     text-align: center;
@@ -125,11 +125,12 @@ label{
     font-size: 14px;
     font-weight: bold;
     color: rgba(31, 30, 30, 0.668);
+    margin-bottom: -2.7px;
 }
 .infoInput{
     width: 100%;
     padding: 10px 20px;
-    margin: 8px 0;
+    margin-bottom: 8px 0;
     box-sizing: border-box;
 }
 .formClick{
@@ -138,6 +139,7 @@ label{
     font-family: "Poppins";
     font-size: 14px;
     font-weight: bold;
+    border-radius:4px
 }
 #timerParentContainer{
     margin: auto;
@@ -149,7 +151,7 @@ label{
     border: 10px  #f69e9e5e;
     background-color: #f69e9e5e;
     border-radius: 8px;
-    width:600px;
+    width:650px;
     height: 425px;
     margin: 0 auto;
 }
@@ -161,7 +163,7 @@ label{
     align-items: center;
     justify-content: center;
 }
-.workHeader, .shortHeader, .longHeader{
+#workHeader, #shortHeader, #longHeader{
     display: inline-block;
     
 }
@@ -174,7 +176,7 @@ label{
     height: max-content
 }
 
-.shortHeader, .longHeader{
+#shortHeader, #longHeader{
     margin-left: 30px;
 }
 h3 {
@@ -234,15 +236,17 @@ h3 {
     text-align: center;
     width: max-content;
     height: max-content;
-    padding-top: 30px;
+    padding-top: 20px;
 }
 
 #quotesParentContainer{
     margin: auto;
     width: auto;
-    height: auto;
+    height: 60px;
 }
-
+#spacing{
+    margin: 50px;
+}
 #quotesChildContainer{
     margin:0 auto;
     display: flex;
@@ -256,4 +260,70 @@ h3 {
 }
 #quoteAuthor{
     text-align: center;
+}
+
+#footerContainer{
+    display: flex;
+    justify-content: center;
+}
+#todoHeader{
+    margin-top: -33px;
+}
+#footerChildContainer{
+    border-radius: 10px;
+    width: 400px;
+    height: fit-content;
+}
+#footerChildContainer:first-child{
+    margin-right: 350px;
+}
+h4{
+    font-family: "poppins";
+    color: white;
+    font-size: 25px;
+}
+hr{
+    margin-top: -40px;
+    border-color: white;
+}
+
+.openAddTaskFormBtn{
+    font-size: 20px;
+    font-family: "Poppins";
+    color:white;
+    background-color: #f69e9e5e;
+    border-color:#f69e9e5e;
+    border:3px;
+    border-radius: 8px;
+    width: 400px;
+    height: 40px;
+}
+
+
+
+#todoForm{
+    background-color: #ffffff;
+    margin: 1rem 0;
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.todoInput{
+    height: max-content;
+    font-family:"poppins";
+    font-size: 15px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.singleTask{
+    height: max-content;
+    font-family:"poppins";
+    font-size: 15px;
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom:10px
 }

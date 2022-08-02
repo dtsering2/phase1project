@@ -16,6 +16,7 @@ const formContainer = document.querySelector('div.formContainer')
     const timerparentContainer = document.querySelector('div.timerParentContainer')
     const signupCancel = document.querySelector('div.signinCancelBtn')
 
+////////////////////////////////////////////////////////////////////////////////////////////
 //Event listeners for setting button
     //mouse over event to change text color
     settingsbtn.addEventListener('mouseover', ()=>{
@@ -28,12 +29,14 @@ const formContainer = document.querySelector('div.formContainer')
     settingsbtn.addEventListener('click', ()=>{
         formContainer.setAttribute('id','formContainer')
         settingContainer.setAttribute('id','settingContainer')
+        loginContainer.setAttribute("id", "formHidden")
+        signupContainer.setAttribute("id", "formHidden")
         timerparentContainer.setAttribute("id", "formHidden")
         //add event listener to submit settings form
 
         //want to add event listeners after the form is rendered
         document.addEventListener("DOMContentLoaded",()=>{
-            //event listener for exiting the settings form
+            //event listener for close the settings form
             settingCancel.addEventListener('click', ()=>{
                 formContainer.setAttribute('id','formHidden')
                 settingContainer.setAttribute('id','formHidden')
@@ -41,7 +44,7 @@ const formContainer = document.querySelector('div.formContainer')
             });
         });
     });
-
+////////////////////////////////////////////////////////////////////////////////////////////
 //Event listeners for login
     //mouse over event to change text color
     loginbtn.addEventListener('mouseover', ()=>{
@@ -55,6 +58,8 @@ const formContainer = document.querySelector('div.formContainer')
     loginbtn.addEventListener('click', ()=>{
         formContainer.setAttribute('id','formContainer')
         loginContainer.setAttribute('id','loginContainer')
+        settingContainer.setAttribute("id", "formHidden")
+        signupContainer.setAttribute("id", "formHidden")
         timerparentContainer.setAttribute("id", "formHidden")
         //add event listener to submit log in form
 
@@ -69,6 +74,7 @@ const formContainer = document.querySelector('div.formContainer')
         });
     });
 
+////////////////////////////////////////////////////////////////////////////////////////////
 //Event Listeners for sign up
     //mouseover event to change text color
     signupbtn.addEventListener("mouseover",()=>{
@@ -83,6 +89,9 @@ const formContainer = document.querySelector('div.formContainer')
         formContainer.setAttribute('id','formContainer')
         signupContainer.setAttribute('id','signupContainer')
         timerparentContainer.setAttribute("id", "formHidden")
+        settingContainer.setAttribute("id", "formHidden")
+        loginContainer.setAttribute("id", "formHidden")
+
         //add event listner to submit sign up form
             //sumbit-> boolean if pass & confirm pass match => true
                             //post new user into index.json
@@ -101,7 +110,16 @@ const formContainer = document.querySelector('div.formContainer')
             });
         });
     })
+////////////////////////////////////////////////////////////////////////////////////////////
+//Elements for all timer events
 
+////////////////////////////////////////////////////////////////////////////////////////////
+//Event Listeners for timer
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
 //Random quote generator
 async function getAllQuotes() {
     let res = await fetch('https://type.fit/api/quotes');
@@ -112,12 +130,22 @@ async function getAllQuotes() {
 
 function renderOneQuote() {
     let randomQuote = allQuotes[Math.floor(Math.random() * allQuotes.length)];
-    console.log(randomQuote);
     let textOfQuote = document.querySelector('#quoteText');
     let authorOfQuote = document.querySelector('#quoteAuthor');
     textOfQuote.innerText = `"${randomQuote.text}"`;
-    if (randomQuote.author != null ) {authorOfQuote.innerText = ` - ${randomQuote.author}`}
-    else {authorOfQuote.innerText = ``};
+    if (randomQuote.author != null ){
+        authorOfQuote.innerText = ` - ${randomQuote.author}`
+    } else {
+        authorOfQuote.innerText = ``
+    };
     setTimeout(renderOneQuote, 120000);
 }
 getAllQuotes()
+////////////////////////////////////////////////////////////////////////////////////////////
+//Elements for todo events
+
+////////////////////////////////////////////////////////////////////////////////////////////
+//event listeners for todo submissions
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
