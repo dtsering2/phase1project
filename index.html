@@ -5,20 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>myPOMODORO</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <script></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
 </head>
 <body>
     <!--TOP PART OF THE HEADER WITH THE LOGO, LOGIN BUTTON, AND -->
     <header>
             <div id = "mainBar">
                 <h1 id = "logo">myPOMODORO</h1>
-                <button id = "settings"><b>Settings</b></button>
-                <button id = "login"><b>Login</b></button>
+                <button id = "settings">Settings</button>
+                <button id = "login">Login</button>
+                <button id = "signUp">Sign up</button>
             </div>
             <!--Login and sign up forms-->
-            <div id = "formContainer">
-                <div id = "formHidden">
+            <div id = "formHidden" class = "formContainer">
+                <div id = "formHidden" class = "settingContainer">
+                    <b><p class = "title"> Configure Your Settings</p></b>
+                    <div id="pad">
+                        <form id = "settingForm" >
+                            <label class = "infoForm">Work Timer:</label>
+                            <input class ="infoInput"type = "number" name = "startTimer" >
+                            <label class = "infoForm">Short Break Timer:</label>
+                            <input class ="infoInput"type = "number" name = "shortBreakTimer">
+                            <label class = "infoForm"></labelclass>Long Break Timer: </label>
+                            <input class ="infoInput"type = "number" name = "longBreakTimer">
+                            <input type = "submit" id ="submitSetting" class ="formClick" value = "Save Settings">
+                            <button id = "cancel" class ="formClick" class = "settingCancelBtn">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+                <div id = "formHidden" class = "loginContainer">
                     <b><p class = "title">Please enter your info</p></b>
                     <div id="pad">
                         <form id = "loginForm">
@@ -26,47 +43,53 @@
                             <input class ="infoInput" type = "text" name = "username" >
                             <label class = "infoForm">PASSWORD</label>
                             <input class ="infoInput"type = "text" name = "password">
-                            <span>
-                                <button id = "signUp" class ="formClick">Sign up</button>
-                                <input type = "submit" id ="submitLogin" class ="formClick"value = "Login">
-                            </span>
+                            <input type = "submit" id = "submitLogin" class = "formClick"value = "Login">
+                            <button id = "cancel" class = "formClick" class = "loginCancelBtn">Close</button>
                         </form>
                     </div>
                 </div>
                 
-                <div id = "formHidden">
+                <div id = "formHidden" class = "signupContainer">
                     <b><p class = "title"> Create an Account</p></b>
                     <div id="pad">
                         <form id = "signupForm" >
                             <label class = "infoForm">USERNAME</label>
                             <input class ="infoInput"type = "text" name = "username" >
                             <label class = "infoForm">PASSWORD</label>
-                            <input class ="infoInput"type = "text" name = "password">
+                            <input class ="infoInput"type = "password" name = "password">
                             <label class = "infoForm"></labelclass>CONFIRM PASSWORD</label>
-                            <input class ="infoInput"type = "text" name = "password">
-                            <span>
-                                <button id = "signIn"class ="formClick">Sign in</button>
-                                <input type = "submit" id ="submitCreate" class ="formClick"value = "Create Account">
-                            </span>
+                            <input class ="infoInput"type = "password" name = "password">
+                            <input type = "submit" id ="submitCreate" class ="formClick"value = "Create Account">
+                            <button id = "cancel" class = "formClick" class="signinCancelBtn">Go Back</button>
                         </form>
                     </div>
                 </div>
             </div>
     </header>
 
+<div id = "timerParentContainer" class = "timerParentContainer">
+    <div id = "timerChildContainer">
+        <div id = "timerHeader">
+            <span class = "workHeader"><h3>Work Timer</h3></span>
+            <span class = "shortHeader"><h3>Short Break</h3></span>
+            <span class = "longHeader"><h3>Long Break</h3></span>
+        </div>
+        <div id = "timerContainer">
+            <span id= "timerMin" class = "timer">25</span>
+            <span id ="TimerSec" class = "timer">:00</span>
+        </div>
+        <div id = pauseAndPlayContainer>
+            <button id = "startTimer">Start</button>
+            <button id = "pauseTimer">Pause</button>
 
-
-<!--Timer border: 10px solid white;
-    background-color: white;
-    border-radius: 10px;
-    padding-top: 50px;
-    padding-bottom:50px;
-    padding-right:50px;
-    padding-left:50px;-->
-<div id = "timerContainer">
-<p> testing initial</p>
+        </div>
+        <div id = "timerFooter">
+            <span class = "pomodoro">Complete Cycle:</span> 
+            <span class = "pomodoro" id ="completeCycle">1</span>
+        </div>
+    </div>
 </div>
-<p> Karl's Branch</p>
 
+    <script defer src = index.js></script>
 </body>
 </html>

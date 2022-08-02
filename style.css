@@ -2,7 +2,7 @@ body {
     background-color: #FC5F5F
 }
 
-#logo, #settings, #login {
+#logo, #settings, #login,#signup {
     display: inline-block;
 }
 
@@ -13,31 +13,51 @@ body {
 
 #logo {
     margin-bottom: 30px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 34px;
+    font-family: "Arial Rounded MT Bold";
+    font-size: 35px;
     color: white;
+    font-weight: bolder;
 }
 
 #settings{
-    background-color: #f69e9e;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 20px;
+    background-color: #f69e9e5e;
+    font-family: "Poppins";
+    font-weight: bold;
+    font-size: 15px;
     color: white;
     margin-right: 20px;
-    border: none;
-    padding: 15px 32px;
+    border: 2px;
+    border-color: #f69e9e;
+    padding: 8px 28px;
     text-align: center;
-    opacity: 1;
+    border-radius: 8px;
 }
 #login{
-    background-color: #f69e9e;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 20px;
+    background-color: #f69e9e5e;
+    font-family: "Poppins";
+    font-weight: bold;
+    font-size: 15px;
     color: white;
-    border: none;
-    padding: 15px 45px;
+    margin-right: 20px;
+    border: 2px;
+    border-color: #f69e9e;
+    padding: 8px 38px;
     text-align: center;
+    border-radius: 8px;
 }
+#signUp{
+    background-color: #f69e9e5e;
+    font-family: "Poppins";
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    border: 2px;
+    border-color: #f69e9e;
+    padding: 8px 30px;
+    text-align: center;
+    border-radius: 8px;
+}
+
 #formHidden {
     display: none
 }
@@ -49,11 +69,8 @@ body {
     justify-content: center;
 }
 
-input {
-    margin-bottom: 10px;
-}
 
-#loginForm, #signupForm {
+#loginForm, #signupForm, #settingForm {
     background-color: #ffffff;
     margin: 1rem 0;
     width: 300px;
@@ -64,6 +81,7 @@ input {
 
 input{
     align-items: center;
+    margin-bottom: 10px;
 }
 
 label{
@@ -77,20 +95,22 @@ label{
 #formContainer{
     position: relative;
     width: 300px;
-    height: max-content;
-    margin-left: 64%;
+    height: 450px;
+    margin-left: 40%;
+    display: block;
 
 }
 
-#loginContainer, #signupContainer{
+#loginContainer, #signupContainer, #settingContainer{
     width: 360px;
     position:relative;
     display: block;
     text-align: center;
+    height: max-content
 }
 
 .title{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Poppins";
     font-size: 20px;
     color: white;
 }
@@ -98,10 +118,10 @@ label{
 #pad{
     position:absolute;
     background-color: #ffffff;
-    border-radius: 20px;
+    border-radius: 8px;
 }
 .infoForm{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Poppins";
     font-size: 14px;
     font-weight: bold;
     color: rgba(31, 30, 30, 0.668);
@@ -115,16 +135,104 @@ label{
 .formClick{
     background-color: rgba(31, 30, 30, 0.668);
     color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Poppins";
     font-size: 14px;
     font-weight: bold;
 }
-#timerContainer{
+#timerParentContainer{
+    margin: auto;
+    width: auto;
+    height: auto;
+}
+#timerChildContainer{
     flex:1;
-    border: 10px solid #f69e9e;
-    background-color: #f69e9e;
-    border-radius: 10px;
-    padding: 30px;
-    width:fit-content
+    border: 10px  #f69e9e5e;
+    background-color: #f69e9e5e;
+    border-radius: 8px;
+    width:600px;
+    height: 425px;
+    margin: 0 auto;
+}
 
+#timerHeader{
+    width:600px;
+    margin:0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.workHeader, .shortHeader, .longHeader{
+    display: inline-block;
+    
+}
+#timerContainer{
+    margin:0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    height: max-content
+}
+
+.shortHeader, .longHeader{
+    margin-left: 30px;
+}
+h3 {
+    font-family: "Poppins";
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+.timer {
+    font-size: 180px;
+    font-family: "Arial Rounded MT Bold";
+    color:white;
+}
+
+.pomodoro{
+    font-size: 12px;
+    font-family: "poppins";
+    color:white;
+}
+#pauseAndPlayContainer{
+    padding-top: 30px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    height: max-content
+}
+#startTimer{
+    background-color: rgb(40, 181, 40);
+    font-family: "Poppins";
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    margin-right: 20px;
+    border: 2px;
+    padding: 8px 32px;
+    text-align: center;
+    border-radius: 8px;
+}
+#pauseTimer{
+    background-color: red;
+    font-family: "Poppins";
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    border: 2px;
+    padding: 8px 32px;
+    text-align: center;
+    border-radius: 8px;
+}
+#timerFooter{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: max-content;
+    height: max-content;
+    padding-top: 30px;
 }
