@@ -10,12 +10,6 @@
             "shortBreakTimer" : 5,
             "longBreakTimer" : 10,
             "cycleCompleted" : 0,
-            "userData" : {
-                "daysLoggedIn" : 0,
-                "timeWorked" : 0, 
-                "breakTaken" : 0, 
-                "lifeTimeCycle": 0
-            },
             "Tasks" : []
         },
         {
@@ -28,12 +22,6 @@
             "shortBreakTimer" : 5,
             "longBreakTimer" : 10,
             "cycleCompleted" : 0,
-            "userData" : {
-                "daysLoggedIn" : 0,
-                "timeWorked" : 0, 
-                "breakTaken" : 0, 
-                "lifeTimeCycle": 0
-            },
             "Tasks" : []
         }
     ]
