@@ -247,18 +247,16 @@ async function getDataFromOurServer() {
     dataFromServer.forEach((oneObj) => {
         if (oneObj.username == usernameLoginForm.value) {
             idName = oneObj.id;
-            console.log(idName)
         } else {console.log('not match')}
         }
     )
     dataFromServer.forEach((oneObj) => {
         if (oneObj.password == passwordLoginForm.value) {
             IdPasword = oneObj.id;
-            console.log(IdPasword)
         } else {console.log('not match')}
     })
 
-    if(idName == IdPasword && idName != 'None' && IdPasword != 'None') {console.log('you are loged in')
+    if(idName == IdPasword && idName != 'None' && IdPasword != 'None') {alert('you are loged in')
     async function getdataForUser() {
         let res = await fetch(`http://localhost:3000/users/${idName}`);
         let dataForUser = await res.json() ;
@@ -267,7 +265,7 @@ async function getDataFromOurServer() {
     getdataForUser()
     }
      else {
-        console.log('your password or name is incorect')
+        alert('your password or name is incorect')
     }
 
 
