@@ -11,12 +11,12 @@
 </head>
 <body>
 <!--------------------------------------------------INITIAL FIRST PAGE RENDERED AND FINISHED------------------------------------------------------->
-<div id = "initialLoginContainer" class = "hide">
+<div id = "initialLoginContainer" class = "initialLoginContainer">
         <div class="welcomeHeader">
             <span id ="welcomeTo">Welcome To</span>&nbsp; <span id ="logo">myPOMODORO</span>
         </div>
         <!--LOGIN FORM CREATED AND RENDERED-->
-        <div id = "loginContainer" class = "loginContainer">
+        <div id = "loginContainer" class = "hide">
             <form id = "loginForm">
                 <b><p class = "title">Login</p></b>
                 <label class = "infoLabel">USERNAME</label>
@@ -24,11 +24,11 @@
                 <label class = "infoLabel">PASSWORD</label>
                 <input id = "loginPassword" class ="infoInput" type = "text" name = "password">
                 <input id = "submitLogin" class = "formClick"type = "submit" value = "LOGIN">
-                <button id = "openSignUpForm" class = "formClick">Sign Up</button>
+                <button id = "openSignUpForm" class = "formClick"type = "button">Sign Up</button>
             </form>
         </div>
         <!--SIGN UP FORM CREATED AND RENDERED-->
-        <div id = "signupContainer" class = "hide">
+        <div id = "signupContainer" class = "signupContainer">
             <form id = "signupForm" >
                 <b><p class = "title">Create New Account</p></b>
                 <label class = "infoLabel">USERNAME</label>
@@ -44,7 +44,7 @@
     </div>
 <!------------------------------------------------AFTER SUCCESSFUL LOG IN RENDER MAIN PAGE-------------------------------------------------->
 <!--Div below with the id "successfulLoginRender" default class will be "hide" until a successful log in-->
-<div id = "successfulLoginRender" class="success">
+<div id = "successfulLoginRender" class="hide">
     <!-- RENDERED HEADER-->
         <div id ="header">
             <header>
@@ -92,9 +92,9 @@
                     </div>
                     <!--Pomodoro timer-->
                     <div id = "timerContainer">
-                        <span id= "WorkTimerMin" class = "timer">25</span>
+                        <span id= "workTimerMin" class = "timer"></span>
                         <span class = "timer">:</span>
-                        <span id ="WorkTimerMin" class = "timer">00</span>
+                        <span id ="workTimerSec" class = "timer">00</span>
                     </div>
                     <!--pomodoro start and pause-->
                     <div id = "pauseAndPlayContainer">
@@ -143,25 +143,9 @@
                                 <button class ="taskDoneBtn">✓</button>
                             </div>
                         </div>
-                        <div class ="singleParentTaskContainer">
-                            <div class = "singleTask">
-                                <span class = "addedTask">- textsome textsome text </span>
-                            </div> 
-                            <div class = "taskDone">
-                                <button class ="taskDoneBtn">✓</button>
-                            </div>
-                        </div>
-                        <div class ="singleParentTaskContainer">
-                            <div class = "singleTask">
-                                <span class = "addedTask">- textsome textsome text </span>
-                            </div> 
-                            <div class = "taskDone">
-                                <button class ="taskDoneBtn">✓</button>
-                            </div>
-                        </div>
                     </div>
                     <!--add new task form-->
-                    <form id = "todoForm" class = "hide">
+                    <form id = "todoForm">
                         <textarea  id = "todoInput" placeholder= "Enter Your New Task" style ="height: 100px"></textarea>
                         <input type = "submit" id ="submitTodo" class ="formClick" value = "Add Task"/>
                         <button id = "cancel" class ="formClick" class = "settingCancelBtn">Cancel</button>

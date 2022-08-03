@@ -6,6 +6,9 @@ body {
 .hide {
     display:none
 }
+#hide {
+    display:none
+}
 .initialLoginContainer{
     position: relative;
     padding-top:100px;

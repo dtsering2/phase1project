@@ -1,23 +1,9 @@
 {
     "users":[
         {
-            "id": 1,
-            "loginInfo" : {
-                "username" : "dtsering2",
-                "password" : "test123"
-            },
-            "startWorkTimer" : 25,
-            "shortBreakTimer" : 5,
-            "longBreakTimer" : 10,
-            "cycleCompleted" : 0,
-            "Tasks" : []
-        },
-        {
-            "id": 2,
-            "loginInfo" : {
-                "username" : "karltheman123",
-                "password" : "test123"
-            },
+            "id": 1 ,
+            "username" : "test123",
+            "password" : "test123",
             "startWorkTimer" : 25,
             "shortBreakTimer" : 5,
             "longBreakTimer" : 10,
