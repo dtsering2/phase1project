@@ -11,7 +11,7 @@
 </head>
 <body>
 <!--------------------------------------------------INITIAL FIRST PAGE RENDERED AND FINISHED------------------------------------------------------->
-<div id = "initialLoginContainer" class = "initialLoginContainer">
+<div id = "initialLoginContainer" class = "hide">
         <div class="welcomeHeader">
             <span id ="welcomeTo">Welcome To</span>&nbsp; <span id ="logo">myPOMODORO</span>
         </div>
@@ -22,13 +22,13 @@
                 <label class = "infoLabel">USERNAME</label>
                 <input id = "loginUsername"class ="infoInput" type = "text" name = "username" >
                 <label class = "infoLabel">PASSWORD</label>
-                <input id = "loginPassword" class ="infoInput" type = "text" name = "password">
+                <input id = "loginPassword" class ="infoInput" type = "password" name = "password">
                 <input id = "submitLogin" class = "formClick"type = "submit" value = "LOGIN">
                 <button id = "openSignUpForm" class = "formClick"type = "button">Sign Up</button>
             </form>
         </div>
         <!--SIGN UP FORM CREATED AND RENDERED-->
-        <div id = "signupContainer" class = "signupContainer">
+        <div id = "signupContainer" class = "hide">
             <form id = "signupForm" >
                 <b><p class = "title">Create New Account</p></b>
                 <label class = "infoLabel">USERNAME</label>
@@ -38,13 +38,13 @@
                 <label class = "infoLabel">CONFIRM PASSWORD</label>
                 <input id = "signupConfirmPass" class ="infoInput" type = "password" name = "confirmPassword">
                 <input id ="submitCreate" type = "submit" class ="formClick"value = "SIGN UP">
-                <button id = "goBackLoginBtn" class = "formClick">Go Back To Login</button>
+                <button id = "goBackLoginBtn" type = "button"class = "formClick">Go Back To Login</button>
             </form>
         </div>
     </div>
 <!------------------------------------------------AFTER SUCCESSFUL LOG IN RENDER MAIN PAGE-------------------------------------------------->
 <!--Div below with the id "successfulLoginRender" default class will be "hide" until a successful log in-->
-<div id = "successfulLoginRender" class="hide">
+<div id = "successfulLoginRender" class="successfulLoginRender">
     <!-- RENDERED HEADER-->
         <div id ="header">
             <header>
@@ -92,7 +92,7 @@
                     </div>
                     <!--Pomodoro timer-->
                     <div id = "timerContainer">
-                        <span id= "workTimerMin" class = "timer"></span>
+                        <span id= "workTimerMin" class = "timer">25</span>
                         <span class = "timer">:</span>
                         <span id ="workTimerSec" class = "timer">00</span>
                     </div>
@@ -145,11 +145,13 @@
                         </div>
                     </div>
                     <!--add new task form-->
-                    <form id = "todoForm">
-                        <textarea  id = "todoInput" placeholder= "Enter Your New Task" style ="height: 100px"></textarea>
-                        <input type = "submit" id ="submitTodo" class ="formClick" value = "Add Task"/>
-                        <button id = "cancel" class ="formClick" class = "settingCancelBtn">Cancel</button>
-                    </form>
+                    <div class = "todoForm">
+                        <form id = "todoForm">
+                            <textarea  id = "todoInput" placeholder= "Enter Your New Task" style ="height: 100px"></textarea>
+                            <input type = "submit" id ="submitTodo" class ="formClick" value = "Add Task"/>
+                            <button id = "cancel" class ="formClick" class = "settingCancelBtn">Cancel</button>
+                        </form>
+                    </div>
                     <!--button to open task form-->
                     <button id = "openAddTaskForm" class = "openAddTaskFormBtn"> + Add A New Task</button>
                 </div>

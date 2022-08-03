@@ -1,15 +1,4 @@
-//TODO: Write a function that checks login info
-    //let loginstatus = false;
-    //add event listener to the login submit, that will check if the username and password exist in our database:
-        //if the entered username and password is inside of our db.json, we will: 
-                                                                                //1. change the div#initialLoginContainer class from .initialLoginContainer to .hide (basically hides the initial first rendered page)
-                                                                                //2. change the div#successfulLoginRender class from .hide to .successfulLoginRender
-                                                                                //3. create a variable called currentuserId and set it to that users.id.value (this will be the end point for the individual fetch calls we make later on)
-                                                                                //4. grab the specific user's work timer, short break timer, long break timer 
-                                                                                        //initial stage is work timer so start with work timer first
-                                                                                        //create a var for span#worktimermin and set its inner text to the value of the key startworktimer
-                                                                                        //we want to use DOM content loaded to do the same for the short break and long break
-                                                                                //5. grab the users tasks from the key task and for each element in the array, render it to the Dom
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////     
 //Event Listener to open the sign up form and create new account
     //grabbing elements to open sign up form
@@ -32,7 +21,6 @@
         const usernameSubmitForm = document.querySelector('#signupUsername');
         const passwordSubmitForm = document.querySelector('#signupPass');
         const confirmPasswordSubmitForm = document.querySelector('#signupConfirmPass');
-    
         objNewInfoSingUp = {
             username: usernameSubmitForm.value,
             password: passwordSubmitForm.value,
@@ -61,8 +49,72 @@
         let data = await res.json() ;
         console.log(data);
     }
+    //event listener to go back to log in form
+    const goBackToLogin = document.querySelector("button#goBackLoginBtn")
+    goBackToLogin.addEventListener('click', ()=>{
+        loginForm.setAttribute("class", "loginContainer")
+        signupForm.setAttribute("class" , "hide")
+    })
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//event listener to log in
+//elements to render 
+const successLoginRender = document.querySelector("div#successfulLoginRender")
+const initialLoginPage = document.querySelector('div#initialLoginContainer')
+//const signupForm = document.querySelector("div#signupContainer") //just for reference
+//const loginForm = document.querySelector("div#loginContainer") // just for reference
 
+
+document.querySelector('#submitLogin').addEventListener("click", (e) => {
+    e.preventDefault()
+    getDataFromOurServer()})
+
+//variables for getDataFromOurServer
+    let idName = 'None';
+    let IdPassword = 'None';
+    let successLogin = false ;
+
+
+async function getDataFromOurServer() {
+    let res = await fetch('http://localhost:3000/users');
+    let dataFromServer = await res.json() ;
+    //let valuesOfNames = Object.keys(dataFromServer);
+    //console.log(valuesOfNames) 
+    const usernameLoginForm = document.querySelector('#loginUsername');
+    const passwordLoginForm = document.querySelector('#loginPassword');
     
+    dataFromServer.forEach((oneObj) => {
+        if (oneObj.username == usernameLoginForm.value) {
+            idName = oneObj.id;
+        } else {
+            console.log('not match')
+        }
+    })
+
+    dataFromServer.forEach((oneObj) => {
+        if (oneObj.password == passwordLoginForm.value) {
+            IdPassword = oneObj.id;
+        } else {
+            console.log('not match')
+        }
+    })
+
+    if(idName == IdPassword && idName != 'None' && IdPassword != 'None') {
+        alert('you are logged in')
+        loginForm.setAttribute("class", "hide")
+        signupForm.setAttribute("class", "hide")
+        initialLoginPage.setAttribute("class", "hide")
+        successLoginRender.setAttribute("class", "successfulLoginRender")
+        async function getdataForUser() {
+        let res = await fetch(`http://localhost:3000/users/${idName}`);
+        let dataForUser = await res.json() ;
+        console.log(dataForUser);
+    }
+    getdataForUser()
+    } else {
+        alert('Your username or password is incorrect. Please try again.')
+    }
+}
+
 
 
 
@@ -126,16 +178,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
     getAllQuotes()
 })
-
-
-
-
-
-
-
-
-
-
 
 
 
