@@ -21,9 +21,47 @@
         loginForm.setAttribute("class", "hide")
         signupForm.setAttribute("class" , "signupContainer")
     })
+    //event listener to create an account
+    const createAccountBtn = document.querySelector("input#submitCreate")
+        createAccountBtn.addEventListener("click", (e) => {
+        e.preventDefault()
+        createAnAccount()
+    })
     
+    async function createAnAccount() {
+        const usernameSubmitForm = document.querySelector('#signupUsername');
+        const passwordSubmitForm = document.querySelector('#signupPass');
+        const confirmPasswordSubmitForm = document.querySelector('#signupConfirmPass');
+    
+        objNewInfoSingUp = {
+            username: usernameSubmitForm.value,
+            password: passwordSubmitForm.value,
+            startWorkTimer: 25,
+            shortBreakTimer: 5,
+            longBreakTimer: 10,
+            cycleCompleted: 0,
+            Tasks: []
+        }
+    
+        if (passwordSubmitForm.value === confirmPasswordSubmitForm.value ) {
+            updateYourPasswordAndName(objNewInfoSingUp);
+            alert('Successfully created an account! Please log in!')
+        } else {
+            document.querySelector('#signupForm').reset();
+            alert('Your passwords do not match. Please try again.')
+        }
+    }
+    
+    async function updateYourPasswordAndName(objNewInfoSingUp) {
+        let res = await fetch('http://localhost:3000/users', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(objNewInfoSingUp)
+        });
+        let data = await res.json() ;
+        console.log(data);
+    }
 
- //Event Listener
     
 
 

@@ -1,14 +1,24 @@
 {
-    "users":[
-        {
-            "id": 1 ,
-            "username" : "test123",
-            "password" : "test123",
-            "startWorkTimer" : 25,
-            "shortBreakTimer" : 5,
-            "longBreakTimer" : 10,
-            "cycleCompleted" : 0,
-            "Tasks" : []
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "username": "test123",
+      "password": "test123",
+      "startWorkTimer": 25,
+      "shortBreakTimer": 5,
+      "longBreakTimer": 10,
+      "cycleCompleted": 0,
+      "Tasks": []
+    },
+    {
+      "username": "123",
+      "password": "123",
+      "startWorkTimer": 25,
+      "shortBreakTimer": 5,
+      "longBreakTimer": 10,
+      "cycleCompleted": 0,
+      "Tasks": [],
+      "id": 2
+    }
+  ]
 }
