@@ -2,10 +2,8 @@
   "users": [
     {
       "id": 1,
-      "loginInfo": {
-        "username": "dtsering2",
-        "password": "test123"
-      },
+      "username": "dtsering2",
+      "password": "test123",
       "startWorkTimer": 25,
       "shortBreakTimer": 5,
       "longBreakTimer": 10,
@@ -14,10 +12,8 @@
     },
     {
       "id": 2,
-      "loginInfo": {
-        "username": "karltheman123",
-        "password": "test123"
-      },
+      "username": "karltheman123",
+      "password": "test1234",
       "startWorkTimer": 25,
       "shortBreakTimer": 5,
       "longBreakTimer": 10,
@@ -25,38 +21,24 @@
       "Tasks": []
     },
     {
-      "username": "1234",
-      "password": "123",
+      "username": "Karl Savinskiy",
+      "password": "qwerty",
+      "startWorkTimer": 25,
+      "shortBreakTimer": 5,
+      "longBreakTimer": 10,
+      "cycleCompleted": 0,
+      "Tasks": [],
       "id": 3
     },
     {
-      "username": "12345",
+      "username": "karlNew",
       "password": "123",
+      "startWorkTimer": 25,
+      "shortBreakTimer": 5,
+      "longBreakTimer": 10,
+      "cycleCompleted": 0,
+      "Tasks": [],
       "id": 4
-    },
-    {
-      "loginInfo": {
-        "username": "112345",
-        "password": "123"
-      },
-      "startWorkTimer": 25,
-      "shortBreakTimer": 5,
-      "longBreakTimer": 10,
-      "cycleCompleted": 0,
-      "Tasks": [],
-      "id": 5
-    },
-    {
-      "loginInfo": {
-        "username": "1234",
-        "password": "123"
-      },
-      "startWorkTimer": 25,
-      "shortBreakTimer": 5,
-      "longBreakTimer": 10,
-      "cycleCompleted": 0,
-      "Tasks": [],
-      "id": 6
     }
   ]
 }

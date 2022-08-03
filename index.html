@@ -25,11 +25,11 @@
                     <div id="pad">
                         <form id = "settingForm" >
                             <label class = "infoForm">Work Timer:</label>
-                            <input class ="infoInput"type = "number" name = "startTimer" >
+                            <input class ="infoInput"type = "number" name = "startTimer" id = "workTimerForm">
                             <label class = "infoForm">Short Break Timer:</label>
-                            <input class ="infoInput"type = "number" name = "shortBreakTimer">
+                            <input class ="infoInput"type = "number" name = "shortBreakTimer" id = "shortBreakTimerForm">
                             <label class = "infoForm"></labelclass>Long Break Timer: </label>
-                            <input class ="infoInput"type = "number" name = "longBreakTimer">
+                            <input class ="infoInput"type = "number" name = "longBreakTimer" id = "longBreakTimerForm">
                             <input type = "submit" id ="submitSetting" class ="formClick" value = "Save Settings">
                             <button id = "cancel" class ="formClick" class = "settingCancelBtn">Cancel</button>
                         </form>
@@ -40,9 +40,9 @@
                     <div id="pad">
                         <form id = "loginForm">
                             <label class = "infoForm">USERNAME</label>
-                            <input class ="infoInput" type = "text" name = "username" >
+                            <input class ="infoInput" type = "text" name = "username"  id = "usernameLoginForm">
                             <label class = "infoForm">PASSWORD</label>
-                            <input class ="infoInput"type = "text" name = "password">
+                            <input class ="infoInput"type = "text" name = "password" id = "passwordLoginForm">
                             <input type = "submit" id = "submitLogin" class = "formClick"value = "Login">
                             <button id = "cancel" class = "formClick" class = "loginCancelBtn">Close</button>
                         </form>
@@ -60,7 +60,7 @@
                             <label class = "infoForm"></labelclass>CONFIRM PASSWORD</label>
                             <input class ="infoInput"type = "password" name = "password" id ="confirmPasswordSubmitForm">
                             <input type = "submit" id ="submitCreate" class ="formClick"value = "Create Account">
-                            <button id = "cancel" class = "formClick" class="signinCancelBtn">Go Back</button>
+                            <button id = "cancelSignUpButton" class = "formClick" class="signinCancelBtn">Go Back</button>
                         </form>
                     </div>
                 </div>
@@ -103,11 +103,11 @@
         </em>
     </div>
 </div>
-<!-- <div>
+ <!-- <div>
     <iframe style="border-radius:12px" 
     src="https://open.spotify.com/embed/playlist/3WLDIcG4Cx2UOPy0rbFhQn?utm_source=generator" 
     width="20%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-</div> -->
+</div>  -->
     <script defer src = index.js></script>
 </body>
 </html>
