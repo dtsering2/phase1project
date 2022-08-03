@@ -234,6 +234,10 @@ document.querySelector('#submitLogin').addEventListener("click", (e) => {
     e.preventDefault()
     getDataFromOurServer()})
 
+//variables for getDataFromOurServer
+    let idName = 'None';
+    let IdPasword = 'None';
+
 
 async function getDataFromOurServer() {
     let res = await fetch('http://localhost:3000/users');
@@ -242,8 +246,8 @@ async function getDataFromOurServer() {
     //console.log(valuesOfNames) 
     const usernameLoginForm = document.querySelector('#usernameLoginForm');
     const passwordLoginForm = document.querySelector('#passwordLoginForm');
-    let idName = 'None';
-    let IdPasword = 'None';
+    
+    
     dataFromServer.forEach((oneObj) => {
         if (oneObj.username == usernameLoginForm.value) {
             idName = oneObj.id;
@@ -296,7 +300,7 @@ document.querySelector("#submitTodo").addEventListener('click',  (e) => {
     e.preventDefault()
     renderOneToDo()})
 
-let arrayOfAllTasks = [];
+//let arrayOfAllTasks = [];
     async function renderOneToDo() {
         let card = document.createElement('li');
         let textToPrintInToDO = document.querySelector('#textToBePrintedInToDo');
@@ -309,21 +313,30 @@ let arrayOfAllTasks = [];
                 <button id="deleteToDo" >x</button>
             </div>
         `
-        card.querySelector('#deleteToDo').addEventListener('click', () => {
+        card.querySelector('#deleteToDo').addEventListener('click', (e) => {
             card.remove()
-            arrayOfAllTasks = arrayOfAllTasks.filter((e) => { 
-                console.log(arrayOfAllTasks, textToPrintInToDO.value, e);
-                return e !== `${textToPrintInToDO.value}`; 
-        })
+           // console.log(e.target.parentnode.parentnode)
+        //     arrayOfAllTasks = arrayOfAllTasks.filter((e) => { 
+        //         console.log(arrayOfAllTasks, textToPrintInToDO.value, e);
+        //         return e !== `${textToPrintInToDO.value}`; 
+        // })
          
             //deleteRamen(ramen.id)
         })
         document.querySelector('#mytodos').appendChild(card);
-        arrayOfAllTasks.push(`${textToPrintInToDO.value}`);
+       // arrayOfAllTasks.push(`${textToPrintInToDO.value}`);
         //console.log(arrayOfAllTasks);
         document.querySelector('#todoForm').reset()
-
+        let Tasks = Tasks.push(`${textToPrintInToDO.value}`)
+        addTheTextInTheTaskBar(Tasks)
     }
 
-
-    
+    async function addTheTextInTheTaskBar(Tasks) {
+        let res = await fetch(`http://localhost:3000/users/${idName}`, {
+           method: 'PATCH',
+           headers: { 'Content-Type': 'application/json' },
+           body: JSON.stringify(Tasks)
+       });
+       let data = await res.json() ;
+       console.log(data);
+   }
