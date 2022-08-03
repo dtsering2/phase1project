@@ -291,6 +291,39 @@ async function getDataFromOurServer() {
    
 
 
+// Karl's ToDo Form JS
+document.querySelector("#submitTodo").addEventListener('click',  (e) => {
+    e.preventDefault()
+    renderOneToDo()})
+
+let arrayOfAllTasks = [];
+    async function renderOneToDo() {
+        let card = document.createElement('li');
+        let textToPrintInToDO = document.querySelector('#textToBePrintedInToDo');
+        card.className = "singleParentTaskContainer";
+        card.innerHTML = `
+            <div class = "singleTask">
+                <span>"${textToPrintInToDO.value}"</span>
+            </div> 
+            <div class = "taskDoneBtn">
+                <button id="deleteToDo" >x</button>
+            </div>
+        `
+        card.querySelector('#deleteToDo').addEventListener('click', () => {
+            card.remove()
+            arrayOfAllTasks = arrayOfAllTasks.filter((e) => { 
+                console.log(arrayOfAllTasks, textToPrintInToDO.value, e);
+                return e !== `${textToPrintInToDO.value}`; 
+        })
+         
+            //deleteRamen(ramen.id)
+        })
+        document.querySelector('#mytodos').appendChild(card);
+        arrayOfAllTasks.push(`${textToPrintInToDO.value}`);
+        //console.log(arrayOfAllTasks);
+        document.querySelector('#todoForm').reset()
+
+    }
 
 
-
+    
