@@ -1,4 +1,3 @@
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////     
 //Event Listener to open the sign up form and create new account
     //grabbing elements to open sign up form
@@ -106,7 +105,8 @@ async function getDataFromOurServer() {
         async function getdataForUser() {
         let res = await fetch(`http://localhost:3000/users/${idName}`);
         let dataForUser = await res.json() ;
-        userData = await dataForUser
+        userData = await dataForUser;
+        document.querySelector('span#workTimerMin').innerText=userData.startWorkTimer;
     }
     getdataForUser()
     } else {
@@ -217,6 +217,7 @@ async function getDataFromOurServer() {
     //Timer min element
     timerContainer = document.querySelector("div#timerContainer")
     minTime = document.querySelector('span#workTimerMin');
+    secTime = document.querySelector('span#workTimerSec')
     const url = "http://localhost:3000/users"
 //FIXME: 
     //defining function to grab data
@@ -227,12 +228,15 @@ async function getDataFromOurServer() {
     //defining function render data
     function renderWorkTime(currentData){
         minTime.innerText = currentData.startWorkTimer
+        secTime.innerText = 00;
     }
     function renderShortBreak(currentData){
         minTime.innerText = currentData.shortBreakTimer
+        secTime.innerText = 00;
     }
     function renderLongBreak(currentData){
         minTime.innerText = currentData.longBreakTimer
+        secTime.innerText = 00;
     }
 
     //event listener to populate the timer
@@ -272,14 +276,12 @@ async function getDataFromOurServer() {
 
             //function to start timer count down
             const timer = function () {
-                if (seconds.innerText != 0){
+                if (seconds.innerText != 00){
                     seconds.innerText --;
-                } else if(minute.innerText != 0 && seconds.innerText == 0){
+                } else if(minute.innerText != 0 && seconds.innerText == 00){
                     seconds.innerText = 59;
                     minute.innerText --;
-                } else {
-                    alert("Work time has finished, proceed to short break")
-                };
+                } 
             };
             //function to pause timer
             const stopTimer = function(){
@@ -327,32 +329,6 @@ const openTaskFormBtn = document.querySelector("button#openAddTaskFormBtn") //If
         todoFormContainer.setAttribute("class", "hide")
         openTaskFormBtn.setAttribute("class", "show")
     })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

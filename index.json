@@ -33,9 +33,9 @@
     {
       "username": "",
       "password": "",
-      "startWorkTimer": "15",
-      "shortBreakTimer": "2",
-      "longBreakTimer": "5",
+      "startWorkTimer": "25",
+      "shortBreakTimer": "5",
+      "longBreakTimer": "10",
       "cycleCompleted": 0,
       "Tasks": [
         "task1",
