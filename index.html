@@ -5,123 +5,170 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>myPOMODORO</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="defaultstyle.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-
+    <script defer src = index.js></script>
 </head>
 <body>
-    <!--TOP PART OF THE HEADER WITH THE LOGO, LOGIN BUTTON, AND -->
-    <header>
-            <div id = "mainBar">
-                <h1 id = "logo">myPOMODORO</h1>
-                <button id = "settings">Settings</button>
-                <button id = "login">Login</button>
-                <button id = "signUp">Sign up</button>
+<!--------------------------------------------------INITIAL FIRST PAGE RENDERED AND FINISHED------------------------------------------------------->
+<div id = "initialLoginContainer" class = "initialLoginContainer">
+        <div class="welcomeHeader">
+            <span id ="welcomeTo">Welcome To</span>&nbsp; <span id ="logo">myPOMODORO</span>
+        </div>
+        <!--LOGIN FORM CREATED AND RENDERED-->
+        <div id = "loginContainer" class = "loginContainer">
+            <form id = "loginForm">
+                <b><p class = "title">Login</p></b>
+                <label class = "infoLabel">USERNAME</label>
+                <input id = "loginUsername"class ="infoInput" type = "text" name = "username" >
+                <label class = "infoLabel">PASSWORD</label>
+                <input id = "loginPassword" class ="infoInput" type = "password" name = "password">
+                <input id = "submitLogin" class = "formClick"type = "submit" value = "LOGIN">
+                <button id = "openSignUpForm" class = "formClick"type = "button">Sign Up</button>
+            </form>
+        </div>
+        <!--SIGN UP FORM CREATED AND RENDERED-->
+        <div id = "signupContainer" class = "hide">
+            <form id = "signupForm" >
+                <b><p class = "title">Create New Account</p></b>
+                <label class = "infoLabel">USERNAME</label>
+                <input id ="signupUsername" class ="infoInput" type = "text" name = "username" >
+                <label class = "infoLabel">PASSWORD</label>
+                <input id ="signupPass" class = "infoInput"type = "password" name = "password">
+                <label class = "infoLabel">CONFIRM PASSWORD</label>
+                <input id = "signupConfirmPass" class ="infoInput" type = "password" name = "confirmPassword">
+                <input id ="submitCreate" type = "submit" class ="formClick"value = "SIGN UP">
+                <button id = "goBackLoginBtn" type = "button"class = "formClick">Go Back To Login</button>
+            </form>
+        </div>
+    </div>
+<!------------------------------------------------AFTER SUCCESSFUL LOG IN RENDER MAIN PAGE-------------------------------------------------->
+<!--Div below with the id "successfulLoginRender" default class will be "hide" until a successful log in-->
+<div id = "successfulLoginRender" class="hide">
+    <!-- RENDERED HEADER-->
+        <div id ="header">
+            <header>
+                <!-----Main Bar----->
+                <div id = "mainBar">
+                    <h1 id = "logo">myPOMODORO</h1>
+                    <button id = "settingsbtn" type = "button">Settings</button>
+                    <button id = "logoutbtn" type = "button">Log Out</button>
+                </div>
+                <!----Settings form----->
+                <div id = "settingContainer" class = "hide">
+                    <b><p id = "settingTitle" class = "title">Change Timer Settings</p></b>
+                    <form id = "settingForm" >
+                        <div class = "settingGroup">
+                            <label class = "settingLabel">Set Work Timer :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input id = "workTimerForm" class ="settingInput"type = "number" name = "startTimer" placeholder = "Min">
+                        </div>
+                        <div class = "settingGroup">
+                            <label class = "settingLabel">Short Break Timer :</label>&nbsp;&nbsp;
+                            <input id = "shortBreakTimerForm" class ="settingInput"type = "number" name = "shortBreakTimer" placeholder = "Min">
+                        </div>
+                        <div class = "settingGroup">
+                            <label class = "settingLabel">Long Break Timer :</label>&nbsp;&nbsp;&nbsp;
+                            <input id = "longBreakTimerForm" class ="settingInput"type = "number" name = "longBreakTimer" placeholder = "Min">
+                        </div>
+                        <div class = "settingBtnGroup">
+                            <button id = "settingCancelBtn" class ="formClick" type = "button">Cancel</button>
+                            <input  id ="submitSetting" class ="formClick" type = "submit" value = "Save Settings">
+                        </div>
+                    </form>
+                </div>
+            </header>
+        </div>
+    <!----------------------------------------------------EVERYTHING UNDER HEADER---------------------------------------------------------------->
+    <!--Hide the div with id "hideAfterSetting" by changing it class to hide-->
+    <div id = "hideAfterSettings" class="show">
+        <!--Render Timer Container and Contents-->
+            <div id = "timerParentContainer" class = "timerParentContainer">
+                <div id = "timerChildContainer">
+                    <!--Work stage options-->
+                    <div id = "timerHeader">
+                        <button id = "workHeader" class = "timerHeaderBtn">Work Timer</button>
+                        <button id = "shortHeader"class = "timerHeaderBtn">Short Break</button>
+                        <button id = "longHeader" class= "timerHeaderBtn">Long Break</button>
+                    </div>
+                    <!--Pomodoro timer-->
+                    <div id = "timerContainer">
+                        <span id= "workTimerMin" class = "timer"></span>
+                        <span class = "timer">:</span>
+                        <span id ="workTimerSec" class = "timer">00</span>
+                    </div>
+                    <!--pomodoro start and pause-->
+                    <div id = "pauseAndPlayContainer">
+                        <button id = "startTimer">Start</button>
+                        <button id = "pauseTimer">Pause</button>
+                    </div>
+                    <!--pomodoro cycle counter-->
+                    <div id = "timerFooter">
+                        <p>
+                            <span class = "cycle">Complete Cycle</span> 
+                            <span class = "cycle" >:&nbsp;</span>
+                            <span class = "cycle" id ="completeCycle">
+                            <!--want this to be blank and have it dynamically change from js once counter for study and break both ===1-->
+                                1
+                            </span>
+                        </p>
+                    </div>
+                </div>
             </div>
-            <!--Login and sign up forms-->
-            <div id = "formHidden" class = "formContainer">
-                <div id = "formHidden" class = "settingContainer">
-                    <b><p class = "title"> Configure Your Settings</p></b>
-                    <div id="pad">
-                        <form id = "settingForm" >
-                            <label class = "infoForm">Work Timer:</label>
-                            <input class ="infoInput"type = "number" name = "startTimer" id = "workTimerForm">
-                            <label class = "infoForm">Short Break Timer:</label>
-                            <input class ="infoInput"type = "number" name = "shortBreakTimer" id = "shortBreakTimerForm">
-                            <label class = "infoForm"></labelclass>Long Break Timer: </label>
-                            <input class ="infoInput"type = "number" name = "longBreakTimer" id = "longBreakTimerForm">
-                            <input type = "submit" id ="submitSetting" class ="formClick" value = "Save Settings">
-                            <button id = "cancel" class ="formClick" class = "settingCancelBtn">Cancel</button>
-                        </form>
-                    </div>
-                </div>
-                <div id = "formHidden" class = "loginContainer">
-                    <b><p class = "title">Please enter your info</p></b>
-                    <div id="pad">
-                        <form id = "loginForm">
-                            <label class = "infoForm">USERNAME</label>
-                            <input class ="infoInput" type = "text" name = "username"  id = "usernameLoginForm">
-                            <label class = "infoForm">PASSWORD</label>
-                            <input class ="infoInput"type = "text" name = "password" id = "passwordLoginForm">
-                            <input type = "submit" id = "submitLogin" class = "formClick"value = "Login">
-                            <button id = "cancel" class = "formClick" class = "loginCancelBtn">Close</button>
-                        </form>
-                    </div>
-                </div>
-                
-                <div id = "formHidden" class = "signupContainer">
-                    <b><p class = "title"> Create an Account</p></b>
-                    <div id="pad">
-                        <form id = "signupForm" >
-                            <label class = "infoForm">USERNAME</label>
-                            <input class ="infoInput"type = "text" name = "username" id ="usernameSubmitForm" >
-                            <label class = "infoForm"  >PASSWORD</label>
-                            <input class ="infoInput"type = "password" name = "password" id ="passwordSubmitForm">
-                            <label class = "infoForm"></labelclass>CONFIRM PASSWORD</label>
-                            <input class ="infoInput"type = "password" name = "password" id ="confirmPasswordSubmitForm">
-                            <input type = "submit" id ="submitCreate" class ="formClick"value = "Create Account">
-                            <button id = "cancelSignUpButton" class = "formClick" class="signinCancelBtn">Go Back</button>
-                        </form>
-                    </div>
+        <!--Quote Generator-->
+            <div id = "quotesParentContainer">
+                <div id = "quotesChildContainer">
+                    <em>
+                        <p id = "quoteText"><!--Quote--><br>
+                            <span><p id = "quoteAuthor"><!--Quote Author--></p></span>
+                        </p>
+                    </em>
                 </div>
             </div>
-    </header>
+        <!--task and playlist container-->
+        <div id = "footerContainer">
+            <div id = "footerChildContainer">
+                <!--TO DO HEADER-->
+                <div id = todoHeader>
+                    <h4>To-do List:</h4>
+                    <hr>
+                </div>
+                <!--Accessing and submitting todo-->
+                <div id = "todoContainer">
+                    <div id="mytodos">
+                        <div class ="singleParentTaskContainer">
+                            <div class = "singleTask">
+                                <span class = "addedTask">- textsome textsome text </span>
+                            </div> 
+                            <div class = "taskDone">
+                                <button class ="taskDoneBtn">✓</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--add new task form-->
+                    <div id = "todoFormContainer" class = "hide">
+                        <form id = "todoForm">
+                            <textarea  id = "todoInput" placeholder= "Enter Your New Task" style ="height: 100px"></textarea>
+                            <input type = "submit" id ="submitTodo" class ="formClick" value = "Add Task"/>
+                            <button id = "todoCancelBtn" class ="formClick" type = "button">Cancel</button>
+                        </form>
+                    </div>
+                    <!--button to open task form-->
+                    <button id = "openAddTaskFormBtn" class = "show" type = "button"> + Add A New Task</button>
+                </div>
+            </div>
+            <!--Spotify Playlist-->
+            <div id ="footerSiblingContainer">
+                <div id ="spotifyPlaylist">
+                    <iframe style="border-radius:12px" 
+                        src="https://open.spotify.com/embed/playlist/3WLDIcG4Cx2UOPy0rbFhQn?utm_source=generator" 
+                        width= "400" height= "380" frameBorder="0" allowfullscreen="" 
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+                    </iframe>
+                </div> 
+            </div>
+        </div>         
+    </div>
 
-<div id = "timerParentContainer" class = "timerParentContainer">
-    <div id = "timerChildContainer">
-        <div id = "timerHeader">
-            <span class = "workHeader"><h3>Work Timer</h3></span>
-            <span class = "shortHeader"><h3>Short Break</h3></span>
-            <span class = "longHeader"><h3>Long Break</h3></span>
-        </div>
-        <div id = "timerContainer">
-            <span id= "timerMin" class = "timer">25</span>
-            <span class = "timer">:</span>
-            <span id ="timerSec" class = "timer">00</span>
-        </div>
-        <div id = "pauseAndPlayContainer">
-            <button id = "startTimer">Start</button>
-            <button id = "pauseTimer">Pause</button>
-        </div>
-        <div id = "timerFooter">
-            <p>
-                <span class = "pomodoro">Complete Cycle</span> 
-                <span class = "pomodoro" >:&nbsp;</span>
-                <span class = "pomodoro" id ="completeCycle">
-                <!--want this to be blank and have it dynamically change from js once counter for study and break both ===1-->
-                1</span>
-            </p>
-        </div>
-    </div>
 </div>
-<div id = "quotesParentContainer">
-    <div id = "quotesChildContainer">
-        <em>
-            <p id = "quoteText">Genius is one percent inspiration and ninety-nine percent perspiration.&nbsp;<br>
-                <span><p id = "quoteAuthor">Thomas Edison</p></span>
-            </p>
-        </em>
-    </div>
-</div>
-<!--Accessing and submitting todo-->
-<div id = "todoContainer">
-    <ul id="mytodos">
-        <!--Want to render our tasks here-->
-    </ul>
-    <!--button to open task form-->
-    <form id = "todoForm">
-        <textarea  class = "todoInput" placeholder= "Enter Your New Task" style ="height: 100px" id = "textToBePrintedInToDo"></textarea>
-        <input type = "submit" id ="submitTodo" class ="formClick" value = "Add Task"/>
-        <button id = "cancel" class ="formClick" class = "settingCancelBtn">Cancel</button>
-    </form>
-    <button id = "openAddTaskForm" class = "openAddTaskFormBtn">+ Add A New Task</button>
-    
-</div>
- <!-- <div>
-    <iframe style="border-radius:12px" 
-    src="https://open.spotify.com/embed/playlist/3WLDIcG4Cx2UOPy0rbFhQn?utm_source=generator" 
-    width="20%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-</div>  -->
-    <script defer src = index.js></script>
 </body>
 </html>

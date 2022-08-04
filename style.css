@@ -1,17 +1,36 @@
+/*Initial log in render styling*/
 body {
     background-color: #FC5F5F
 }
 
-#logo, #settings, #login,#signup {
+.hide {
+    display:none
+}
+#hide {
+    display:none
+}
+.initialLoginContainer{
+    position: relative;
+    padding-top:100px;
+    width: auto;
+    height: max-content;
+    margin: auto;
+    display: block;
+}
+.welcomeHeader{
+    position:relative;
+    display: block;
+    text-align: center;
+    height: max-content;
+    padding-bottom: 50px;
+}
+#welcomeTo, #Logo{
     display: inline-block;
+    font-family: "Poppins";
+    font-size: 30px;
+    color: White;
 }
-
-
-#logo + #settings{
-    margin-left: 600px;
-}
-
-#logo {
+#logo{
     margin-bottom: 30px;
     font-family: "Arial Rounded MT Bold";
     font-size: 35px;
@@ -19,7 +38,80 @@ body {
     font-weight: bolder;
 }
 
-#settings{
+.loginContainer, .signupContainer{
+    width: 360px;
+    margin: 0 auto;
+    position:relative;
+    display: block;
+    height: max-content;
+}
+.title{
+    text-align: center;
+    font-size: 25px;
+    font-family:"Poppins"
+}
+
+#loginForm{
+    background-color: #ffffff;
+    margin: 0 auto;
+    border-radius: 8px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 100px;
+    height: 300px;
+}
+#signupForm{
+    background-color: #ffffff;
+    margin: 0 auto;
+    border-radius: 8px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 135px;
+    height: 320px;
+}
+.infoLabel{
+    font-family: "Poppins";
+    font-size: 14px;
+    font-weight: bold;
+    color: rgba(31, 30, 30, 0.668);
+    margin-bottom: -1px;
+}
+.infoInput{
+    width: 100%;
+    padding: 10px 20px;
+    margin-bottom: 8px ;
+    box-sizing: border-box;
+}
+.formClick{
+    background-color: rgba(31, 30, 30, 0.668);
+    color: white;
+    font-family: "Poppins";
+    font-size: 14px;
+    border-radius:4px;
+    margin-top: 10px;
+}
+
+#submitLogin, #submitCreate{
+    margin-top: 10px;
+}
+
+/*successful render*/
+#logo, #settingsbtn, #logoutbtn {
+    display: inline-block;
+}
+
+#logo + #settingsbtn{
+    margin-left: 600px;
+}
+#settingsbtn, #logoutbtn{
     background-color: #f69e9e5e;
     font-family: "Poppins";
     font-weight: bold;
@@ -32,35 +124,6 @@ body {
     text-align: center;
     border-radius: 8px;
 }
-#login{
-    background-color: #f69e9e5e;
-    font-family: "Poppins";
-    font-weight: bold;
-    font-size: 15px;
-    color: white;
-    margin-right: 20px;
-    border: 2px;
-    border-color: #f69e9e;
-    padding: 8px 38px;
-    text-align: center;
-    border-radius: 8px;
-}
-#signUp{
-    background-color: #f69e9e5e;
-    font-family: "Poppins";
-    font-weight: bold;
-    font-size: 15px;
-    color: white;
-    border: 2px;
-    border-color: #f69e9e;
-    padding: 8px 30px;
-    text-align: center;
-    border-radius: 8px;
-}
-
-#formHidden {
-    display: none
-}
 
 #mainBar
 {
@@ -69,87 +132,60 @@ body {
     justify-content: center;
 }
 
-
-#loginForm, #signupForm, #settingForm {
+.settingContainer{
+    width: 360px;
+    margin: 0 auto;
+    position:relative;
+    display: block;
+    height: max-content
+}
+#settingTitle{
+    color:white;
+    font-size: 30px;
+}
+#settingForm {
     background-color: #ffffff;
-    margin: 1rem 0;
+    margin: 0 auto;
     width: 300px;
     display: flex;
     flex-direction: column;
-    padding: 30px;
-}
-
-input{
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-label{
-    position: left;
-    text-align: left;
-}
-#submitLogin, #signUp {
-    display: inline-block
-}
-
-#formContainer{
-    position: relative;
-    width: 300px;
-    height: 450px;
-    margin-left: 40%;
-    display: block;
-
-}
-
-#loginContainer, #signupContainer, #settingContainer{
-    width: 360px;
-    position:relative;
-    display: block;
-    text-align: center;
-    height: max-content
-}
-
-.title{
-    font-family: "Poppins";
-    font-size: 20px;
-    color: white;
-}
-
-#pad{
-    position:absolute;
-    background-color: #ffffff;
+    padding-top:60px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 60px;
     border-radius: 8px;
+    text-align: center;
 }
-.infoForm{
+.settingLabel{
     font-family: "Poppins";
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     color: rgba(31, 30, 30, 0.668);
+    margin-bottom: -1px;
 }
-.infoInput{
-    width: 100%;
-    padding: 10px 20px;
-    margin: 8px 0;
+.settingInput{
+    width: 20%;
+    height: 20px;
+    padding:5px;
+    margin-bottom: 8px ;
     box-sizing: border-box;
 }
-.formClick{
-    background-color: rgba(31, 30, 30, 0.668);
-    color: white;
-    font-family: "Poppins";
-    font-size: 14px;
-    font-weight: bold;
+#submitSetting, #settingCancelBtn {
+    width: 140px
 }
+/*TODO:TIMER CSS*/
 #timerParentContainer{
     margin: auto;
     width: auto;
     height: auto;
+    padding-top:50px;
 }
 #timerChildContainer{
     flex:1;
     border: 10px  #f69e9e5e;
     background-color: #f69e9e5e;
     border-radius: 8px;
-    width:600px;
+    width:650px;
     height: 425px;
     margin: 0 auto;
 }
@@ -160,10 +196,10 @@ label{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 20px;
 }
-.workHeader, .shortHeader, .longHeader{
+#workHeader, #shortHeader, #longHeader{
     display: inline-block;
-    
 }
 #timerContainer{
     margin:0 auto;
@@ -174,10 +210,13 @@ label{
     height: max-content
 }
 
-.shortHeader, .longHeader{
+#shortHeader, #longHeader{
     margin-left: 30px;
 }
-h3 {
+.timerHeaderBtn {
+    border-color: inherit;
+    border-width: 0px ;
+    background-color: inherit;
     font-family: "Poppins";
     font-weight: bold;
     font-size: 20px;
@@ -189,11 +228,6 @@ h3 {
     color:white;
 }
 
-.pomodoro{
-    font-size: 12px;
-    font-family: "poppins";
-    color:white;
-}
 #pauseAndPlayContainer{
     padding-top: 30px;
     margin: auto;
@@ -234,21 +268,31 @@ h3 {
     text-align: center;
     width: max-content;
     height: max-content;
-    padding-top: 30px;
+    padding-top: 20px;
+}
+.cycle{
+    font-size: 15px;
+    font-family: "poppins";
+    color:white;
 }
 
+/*task and spotify*/
 #quotesParentContainer{
+    padding-top:25px;
     margin: auto;
     width: auto;
-    height: auto;
+    height: 60px;
 }
-
+#spacing{
+    margin: 50px;
+}
 #quotesChildContainer{
     margin:0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
     width: fit-content;
+    padding-bottom:50px;
 }
 #quoteText, #quoteAuthor{
     color: white;
@@ -256,4 +300,89 @@ h3 {
 }
 #quoteAuthor{
     text-align: center;
+}
+
+#footerContainer{
+    padding-top:70px;
+    display: flex;
+    justify-content: center;
+}
+#todoHeader{
+    margin-top: -33px;
+}
+#footerChildContainer{
+    border-radius: 10px;
+    width: 400px;
+    height: fit-content;
+}
+#footerChildContainer:first-child{
+    margin-right: 350px;
+}
+h4{
+    font-family: "poppins";
+    color: white;
+    font-size: 25px;
+}
+hr{
+    margin-top: -40px;
+    border-color: white;
+}
+
+#openAddTaskFormBtn{
+    font-size: 20px;
+    font-family: "Poppins";
+    color:white;
+    background-color: #f69e9e5e;
+    border-color:#f69e9e5e;
+    border:3px;
+    border-radius: 8px;
+    width: 400px;
+    height: 40px;
+}
+
+
+
+#todoForm{
+    background-color: #ffffff;
+    margin: 1rem 0;
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+#todoInput{
+    height: max-content;
+    font-family:"poppins";
+    font-size: 15px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+.singleParentTaskContainer{
+    display:flex
+}
+.singleTask{
+    flex:1;
+    height: max-content;
+    font-family:"poppins";
+    font-size: 15px;
+    background-color: white;
+    color:rgba(31, 30, 30, 0.793);
+    padding-top:5px;
+    padding-bottom:5px;
+    border-radius: 8px;
+    margin-bottom:10px;
+    padding-left:10px;
+}
+.singleTask:first-child{
+    margin-right:10px
+}
+.taskDoneBtn{
+
+    color:white;
+    font-size: 25px;
+    background-color: #FC5F5F;
+    border-color: #FC5F5F;
+    border: 0px;
 }
