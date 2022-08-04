@@ -2,8 +2,8 @@
   "users": [
     {
       "id": 1,
-      "username": "dtsering2",
-      "password": "test123",
+      "username": "a",
+      "password": "a",
       "startWorkTimer": 25,
       "shortBreakTimer": 5,
       "longBreakTimer": 10,
