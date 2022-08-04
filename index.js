@@ -271,6 +271,10 @@ async function getDataFromOurServer() {
         async function getdataForUser() {
             let res = await fetch(`http://localhost:3000/users/${idName}`);
             let dataForUser = await res.json();
+
+           dataForUser.Tasks.forEach(oneValueOfTHeArray => renderOneToDo(oneValueOfTHeArray));
+           console.log(dataForUser.Tasks)
+
         }
         getdataForUser()
     }
@@ -310,21 +314,23 @@ let newArrayForDeleteButton;
 
 document.querySelector("#submitTodo").addEventListener('click', (e) => {
     e.preventDefault()
-    renderOneToDo()
+    let textToPrintInToDO = document.querySelector('#textToBePrintedInToDo').value;
+    renderOneToDo(textToPrintInToDO)
 })
 
+//////////LastChange!!!!
 
-async function renderOneToDo() {
+async function renderOneToDo(a) {//////////LastChange!!!!
     let card = document.createElement('li');
 
-
-
-
-    let textToPrintInToDO = document.querySelector('#textToBePrintedInToDo');
+    
+    
+    //if (a ==! "") {textToPrintInToDO = a} else {console.log("no")};
+    
     card.className = "singleParentTaskContainer";
     card.innerHTML = `
             <div id = "singleTask">
-                <span class="spansValue">${textToPrintInToDO.value}</span>
+                <span class="spansValue">${a}</span>         
             </div> 
             <div class = "taskDoneBtn">
                 <button  id="deleteToDo" >x</button>
