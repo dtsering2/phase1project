@@ -135,17 +135,13 @@
                 <!--Accessing and submitting todo-->
                 <div id = "todoContainer">
                     <div id="mytodos">
-                        <div class ="singleParentTaskContainer">
-                            <div class = "singleTask">
-                                <span class = "addedTask">- textsome textsome text </span>
-                            </div> 
-                            <div class = "taskDone">
-                                <button class ="taskDoneBtn">✓</button>
-                            </div>
-                        </div>
+
                     </div>
                     <!--add new task form-->
                     <div id = "todoFormContainer" class = "hide">
+                        <ul id="mytodos">
+                            <!--Want to render our tasks here-->
+                        </ul>
                         <form id = "todoForm">
                             <textarea  id = "todoInput" placeholder= "Enter Your New Task" style ="height: 100px"></textarea>
                             <input type = "submit" id ="submitTodo" class ="formClick" value = "Add Task"/>

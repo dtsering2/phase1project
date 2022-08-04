@@ -33,15 +33,11 @@
     {
       "username": "",
       "password": "",
-      "startWorkTimer": "25",
-      "shortBreakTimer": "5",
-      "longBreakTimer": "10",
+      "startWorkTimer": "1",
+      "shortBreakTimer": "2",
+      "longBreakTimer": "3",
       "cycleCompleted": 0,
-      "Tasks": [
-        "task1",
-        "task2",
-        "task3"
-      ],
+      "Tasks": [],
       "id": 4
     },
     {
@@ -53,6 +49,36 @@
       "cycleCompleted": 0,
       "Tasks": [],
       "id": 5
+    },
+    {
+      "username": "karl",
+      "password": "karl",
+      "startWorkTimer": 25,
+      "shortBreakTimer": 5,
+      "longBreakTimer": 10,
+      "cycleCompleted": 0,
+      "Tasks": [],
+      "id": 6
+    },
+    {
+      "username": "tt",
+      "password": "tt",
+      "startWorkTimer": 25,
+      "shortBreakTimer": 5,
+      "longBreakTimer": 10,
+      "cycleCompleted": 0,
+      "Tasks": [],
+      "id": 7
+    },
+    {
+      "username": "maguava",
+      "password": "!@#$",
+      "startWorkTimer": "5",
+      "shortBreakTimer": "7",
+      "longBreakTimer": "10",
+      "cycleCompleted": 0,
+      "Tasks": [],
+      "id": 8
     }
   ]
 }
