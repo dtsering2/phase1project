@@ -4,6 +4,6 @@
 <img src = "s4.png" alt = "firstp4">
 <img src = "s5.png" alt = "firstp5">
 <img src = "s6.png" alt = "firstp6">
-<img src = "s6.png" alt = "firstp7">
+<img src = "s7.png" alt = "firstp7">
 
 
