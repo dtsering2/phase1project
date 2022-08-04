@@ -79,6 +79,18 @@
       "cycleCompleted": 0,
       "Tasks": [],
       "id": 8
+    },
+    {
+      "username": "rkatz",
+      "password": "rkatz",
+      "startWorkTimer": "5",
+      "shortBreakTimer": "7",
+      "longBreakTimer": "3",
+      "cycleCompleted": 0,
+      "Tasks": [
+        ""
+      ],
+      "id": 9
     }
   ]
 }
