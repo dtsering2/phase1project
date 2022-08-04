@@ -92,7 +92,7 @@
                     </div>
                     <!--Pomodoro timer-->
                     <div id = "timerContainer">
-                        <span id= "workTimerMin" class = "timer">25</span>
+                        <span id= "workTimerMin" class = "timer"></span>
                         <span class = "timer">:</span>
                         <span id ="workTimerSec" class = "timer">00</span>
                     </div>
@@ -145,15 +145,15 @@
                         </div>
                     </div>
                     <!--add new task form-->
-                    <div class = "todoForm">
+                    <div id = "todoFormContainer" class = "hide">
                         <form id = "todoForm">
                             <textarea  id = "todoInput" placeholder= "Enter Your New Task" style ="height: 100px"></textarea>
                             <input type = "submit" id ="submitTodo" class ="formClick" value = "Add Task"/>
-                            <button id = "cancel" class ="formClick" class = "settingCancelBtn"type = "button">Cancel</button>
+                            <button id = "todoCancelBtn" class ="formClick" type = "button">Cancel</button>
                         </form>
                     </div>
                     <!--button to open task form-->
-                    <button id = "openAddTaskForm" class = "openAddTaskFormBtn" type = "button"> + Add A New Task</button>
+                    <button id = "openAddTaskFormBtn" class = "show" type = "button"> + Add A New Task</button>
                 </div>
             </div>
             <!--Spotify Playlist-->

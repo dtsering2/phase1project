@@ -66,12 +66,12 @@ const initialLoginPage = document.querySelector('div#initialLoginContainer')
 
 document.querySelector('#submitLogin').addEventListener("click", (e) => {
     e.preventDefault()
-    getDataFromOurServer()})
+    getDataFromOurServer()
+})
 
 //variables for getDataFromOurServer
     let idName = 'None';
     let IdPassword = 'None';
-    let userData={};
 
 async function getDataFromOurServer() {
     let res = await fetch('http://localhost:3000/users');
@@ -127,6 +127,7 @@ async function getDataFromOurServer() {
 // console.log(userData)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FIXME: 
 //Settings event listeners
     //grabbing elements for settings
     let settingsbtn = document.querySelector('button#settingsbtn')
@@ -162,33 +163,34 @@ async function getDataFromOurServer() {
     //settings form
     document.querySelector('#submitSetting').addEventListener("click", (e) => {
         e.preventDefault()
-        changeSettings()})
+        changeSettings()
+    })
     
     async function changeSettings() {
-            const workTimerForm = document.querySelector('#workTimerForm');
-            const shortBreakTimerForm = document.querySelector('#shortBreakTimerForm');
-            const longBreakTimerForm = document.querySelector('#longBreakTimerForm');
+        const workTimerForm = document.querySelector('#workTimerForm');
+        const shortBreakTimerForm = document.querySelector('#shortBreakTimerForm');
+        const longBreakTimerForm = document.querySelector('#longBreakTimerForm');
         
-            objYourSettings = {
-                startWorkTimer: workTimerForm.value,
-                shortBreakTimer: shortBreakTimerForm.value,
-                longBreakTimer: longBreakTimerForm.value
+        let objYourSettings = {
+            startWorkTimer: workTimerForm.value,
+            shortBreakTimer: shortBreakTimerForm.value,
+            longBreakTimer: longBreakTimerForm.value
             }
-            document.querySelector('#workTimerMin').innerText = workTimerForm.value;
-            alert('Wow! You changed your settings!')
+        document.querySelector('#workTimerMin').innerText = workTimerForm.value;
+        alert('Wow! You changed your settings!')
+        updateYourSettings(objYourSettings,idName)
     }
-    async function updateYourSettings(objYourSettings, yourId) {
-            let res = await fetch(`http://localhost:3000/users/ ${yourId}`, {
-                method: 'PATCH',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(objYourSettings)
-            });
-            let data = await res.json() ;
-            console.log(data);
+    async function updateYourSettings(patchSettings, yourId) {
+        let res = await fetch(`http://localhost:3000/users/${yourId}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(patchSettings)
+        });
+        let data = await res.json() ;
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Timer header 
-//TODO:necessary elements
+//necessary elements
     const workHeader = document.querySelector("#workHeader")
     const shortHeader = document.querySelector("#shortHeader")
     const longHeader = document.querySelector("#longHeader")
@@ -212,8 +214,43 @@ async function getDataFromOurServer() {
         longHeader.style.color = "white"
     });
 
+    //Timer min element
+    timerContainer = document.querySelector("div#timerContainer")
+    minTime = document.querySelector('span#workTimerMin');
+    const url = "http://localhost:3000/users"
+//FIXME: 
+    //defining function to grab data
+    function getDataById(urlPlaceHolder,justId){
+        return fetch(`${urlPlaceHolder}/${justId}`)
+        .then(res => res.json())
+    }
+    //defining function render data
+    function renderWorkTime(currentData){
+        minTime.innerText = currentData.startWorkTimer
+    }
+    function renderShortBreak(currentData){
+        minTime.innerText = currentData.shortBreakTimer
+    }
+    function renderLongBreak(currentData){
+        minTime.innerText = currentData.longBreakTimer
+    }
 
-//STARTING AND PAUSING TIMER
+    //event listener to populate the timer
+    workHeader.addEventListener('click', ()=>{
+        getDataById(url,idName)
+        .then (individualData => renderWorkTime(individualData))
+    })
+    shortHeader.addEventListener('click', ()=>{
+        getDataById(url,idName)
+        .then (individualData => renderShortBreak(individualData))
+    })
+    longHeader.addEventListener('click', ()=>{
+        getDataById(url,idName)
+        .then (individualData => renderLongBreak(individualData))
+    })
+
+
+    //STARTING AND PAUSING TIMER
         document.addEventListener("DOMContentLoaded", ()=>{
             //grabbing button elements and the timer
             let startBtn = document.querySelector('button#startTimer');
@@ -274,9 +311,22 @@ document.addEventListener("DOMContentLoaded", ()=>{
     getAllQuotes()
 })
 
+//TODO: start the todo button
+const todoFormContainer = document.querySelector("div#todoFormContainer") //want to change its class to hide/show based on if button add task is clicked
+const todoFormSubmission = document.querySelector('input#submitTodo') //submit button for add task
+const todoFormCancelBtn = document.querySelector("button#todoCancelBtn") //to exit to do form
+const openTaskFormBtn = document.querySelector("button#openAddTaskFormBtn") //If pressed opens the form and hides the button itself
 
+//Event listener to open and close todo form
+    openTaskFormBtn.addEventListener('click', ()=> {
+        todoFormContainer.setAttribute("class", "show")
+        openTaskFormBtn.setAttribute("class", "hide")
+    })
 
-
+    todoFormCancelBtn.addEventListener('click', ()=> {
+        todoFormContainer.setAttribute("class", "hide")
+        openTaskFormBtn.setAttribute("class", "show")
+    })
 
 
 
