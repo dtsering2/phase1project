@@ -105,7 +105,9 @@ async function getDataFromOurServer() {
         async function getdataForUser() {
         let res = await fetch(`http://localhost:3000/users/${idName}`);
         let dataForUser = await res.json() ;
-        userData = await dataForUser
+        userData = await dataForUser;
+        dataForUser.Tasks.forEach(oneValueOfTHeArray => renderOneToDo(oneValueOfTHeArray));
+        document.querySelector('span#workTimerMin').innerText=userData.startWorkTimer;
     }
     getdataForUser()
     } else {
@@ -216,6 +218,7 @@ async function getDataFromOurServer() {
     //Timer min element
     timerContainer = document.querySelector("div#timerContainer")
     minTime = document.querySelector('span#workTimerMin');
+    secTime = document.querySelector('span#workTimerSec')
     const url = "http://localhost:3000/users"
 //FIXME: 
     //defining function to grab data
@@ -226,12 +229,15 @@ async function getDataFromOurServer() {
     //defining function render data
     function renderWorkTime(currentData){
         minTime.innerText = currentData.startWorkTimer
+        secTime.innerText = 00;
     }
     function renderShortBreak(currentData){
         minTime.innerText = currentData.shortBreakTimer
+        secTime.innerText = 00;
     }
     function renderLongBreak(currentData){
         minTime.innerText = currentData.longBreakTimer
+        secTime.innerText = 00;
     }
 
     //event listener to populate the timer
@@ -271,14 +277,12 @@ async function getDataFromOurServer() {
 
             //function to start timer count down
             const timer = function () {
-                if (seconds.innerText != 0){
+                if (seconds.innerText != 00){
                     seconds.innerText --;
-                } else if(minute.innerText != 0 && seconds.innerText == 0){
+                } else if(minute.innerText != 0 && seconds.innerText == 00){
                     seconds.innerText = 59;
                     minute.innerText --;
-                } else {
-                    alert("Work time has finished, proceed to short break")
-                };
+                } 
             };
             //function to pause timer
             const stopTimer = function(){
@@ -326,3 +330,127 @@ const openTaskFormBtn = document.querySelector("button#openAddTaskFormBtn") //If
         todoFormContainer.setAttribute("class", "hide")
         openTaskFormBtn.setAttribute("class", "show")
     })
+
+
+   
+    // Karl's ToDo Form JS ///////////////////////////////////////////////////////////////////////////////////
+
+//My global variables
+let newArray;
+
+let newArrayForDeleteButton;
+
+
+document.querySelector("#submitTodo").addEventListener('click', (e) => {
+    e.preventDefault()
+    let textToPrintInToDO = document.querySelector('#todoInput').value;
+    renderOneToDo(textToPrintInToDO)
+})
+
+
+async function renderOneToDo(a) {
+    let card = document.createElement('li');
+
+    
+    card.className = "singleParentTaskContainer";
+    card.innerHTML = `
+            <div id = "singleTask" class = "singleTask">
+                <span class="spansValue">${a}</span>         
+            </div> 
+            <div class = "taskDone">
+                <button class ="taskDoneBtn" id="deleteToDo" >✓</button>
+            </div>
+        `
+   
+
+        // <div id = "todoContainer">
+        //             <div id="mytodos">
+        //                 <div class ="singleParentTaskContainer">
+        //                     <div class = "singleTask">
+        //                         <span class = "addedTask">- textsome textsome text </span>
+        //                     </div> 
+        //                     <div class = "taskDone">
+        //                         <button class ="taskDoneBtn">✓</button>
+        //                     </div>
+        //                 </div>
+        //             </div>
+   
+   
+        //delete button
+    card.querySelector('#deleteToDo').addEventListener('click', (e) => {
+
+
+        getdataForUserThree()
+        //Get the array from the server
+        async function getdataForUserThree() {
+            let res = await fetch(`http://localhost:3000/users/${idName}`);
+            let dataForUserTwo = await res.json();
+            newArrayForDeleteButton = await dataForUserTwo.Tasks
+
+            
+            //CHange the array
+            let myTextToDelete = e.target.parentNode.parentNode.querySelector('span').textContent
+
+           
+            let newArrayForDeleteButtonWow = newArrayForDeleteButton.filter(item => {
+                
+                return item != myTextToDelete;
+            }
+            );
+            
+                    let tasksObjTwo = {
+                        Tasks: newArrayForDeleteButtonWow
+                    };
+            //Patch the array
+                   addTheTextInTheTaskBarDeleteButton(tasksObjTwo);
+                   document.querySelector('#todoForm').reset()
+        }
+
+            async function addTheTextInTheTaskBarDeleteButton(tasksObjTwo) {
+            let res = await fetch(`http://localhost:3000/users/${idName}`, {
+               method: 'PATCH',
+               headers: { 'Content-Type': 'application/json' },
+               body: JSON.stringify(tasksObjTwo)
+           });
+           let data = await res.json() ;
+
+          }   
+
+          card.remove();
+    })
+
+
+    document.querySelector('#mytodos').appendChild(card);
+
+
+    getdataForUserTwo()
+    //Get the array from the server
+    async function getdataForUserTwo() {
+        let res = await fetch(`http://localhost:3000/users/${idName}`);
+        let dataForUser = await res.json();
+
+
+
+        // Change the array!
+        newArray = dataForUser.Tasks
+        newArray.push(`${document.querySelector('#todoInput').value}`);
+        let tasksObj = {
+            Tasks: newArray
+        };
+
+        //Patch the array!!
+        addTheTextInTheTaskBar(tasksObj);
+        document.querySelector('#todoForm').reset()
+    }
+
+}
+
+async function addTheTextInTheTaskBar(tasksObj) {
+    let res = await fetch(`http://localhost:3000/users/${idName}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(tasksObj)
+    });
+    let data = await res.json();
+    
+}

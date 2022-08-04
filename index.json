@@ -2,8 +2,8 @@
   "users": [
     {
       "id": 1,
-      "username": "a",
-      "password": "a",
+      "username": "test123",
+      "password": "test123",
       "startWorkTimer": 25,
       "shortBreakTimer": 5,
       "longBreakTimer": 10,
@@ -11,18 +11,18 @@
       "Tasks": []
     },
     {
-      "id": 2,
-      "username": "karltheman123",
-      "password": "test1234",
+      "username": "123",
+      "password": "123",
       "startWorkTimer": 25,
       "shortBreakTimer": 5,
       "longBreakTimer": 10,
       "cycleCompleted": 0,
-      "Tasks": []
+      "Tasks": [],
+      "id": 2
     },
     {
-      "username": "Karl Savinskiy",
-      "password": "qwerty",
+      "username": "asdfasdf",
+      "password": "asdfasdf",
       "startWorkTimer": 25,
       "shortBreakTimer": 5,
       "longBreakTimer": 10,
@@ -31,14 +31,58 @@
       "id": 3
     },
     {
-      "username": "karlNew",
-      "password": "123",
+      "username": "",
+      "password": "",
+      "startWorkTimer": "1",
+      "shortBreakTimer": "20",
+      "longBreakTimer": "20",
+      "cycleCompleted": 0,
+      "Tasks": [
+        ""
+      ],
+      "id": 4
+    },
+    {
+      "username": "allen",
+      "password": "fuck",
       "startWorkTimer": 25,
       "shortBreakTimer": 5,
       "longBreakTimer": 10,
       "cycleCompleted": 0,
       "Tasks": [],
-      "id": 4
+      "id": 5
+    },
+    {
+      "username": "zak",
+      "password": "3788",
+      "startWorkTimer": 25,
+      "shortBreakTimer": 5,
+      "longBreakTimer": 10,
+      "cycleCompleted": 0,
+      "Tasks": [],
+      "id": 6
+    },
+    {
+      "username": "zak",
+      "password": "3788",
+      "startWorkTimer": "7",
+      "shortBreakTimer": "8",
+      "longBreakTimer": "6",
+      "cycleCompleted": 0,
+      "Tasks": [],
+      "id": 7
+    },
+    {
+      "username": "lannyducas",
+      "password": "1234",
+      "startWorkTimer": "35",
+      "shortBreakTimer": "2",
+      "longBreakTimer": "15",
+      "cycleCompleted": 0,
+      "Tasks": [
+        ""
+      ],
+      "id": 8
     }
   ]
 }
