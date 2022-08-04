@@ -196,10 +196,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 20px;
 }
 #workHeader, #shortHeader, #longHeader{
     display: inline-block;
-    
 }
 #timerContainer{
     margin:0 auto;
@@ -213,7 +213,10 @@ body {
 #shortHeader, #longHeader{
     margin-left: 30px;
 }
-h3 {
+.timerHeaderBtn {
+    border-color: inherit;
+    border-width: 0px ;
+    background-color: inherit;
     font-family: "Poppins";
     font-weight: bold;
     font-size: 20px;

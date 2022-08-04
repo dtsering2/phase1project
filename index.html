@@ -5,18 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>myPOMODORO</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="defaultstyle.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <script defer src = index.js></script>
 </head>
 <body>
 <!--------------------------------------------------INITIAL FIRST PAGE RENDERED AND FINISHED------------------------------------------------------->
-<div id = "initialLoginContainer" class = "hide">
+<div id = "initialLoginContainer" class = "initialLoginContainer">
         <div class="welcomeHeader">
             <span id ="welcomeTo">Welcome To</span>&nbsp; <span id ="logo">myPOMODORO</span>
         </div>
         <!--LOGIN FORM CREATED AND RENDERED-->
-        <div id = "loginContainer" class = "hide">
+        <div id = "loginContainer" class = "loginContainer">
             <form id = "loginForm">
                 <b><p class = "title">Login</p></b>
                 <label class = "infoLabel">USERNAME</label>
@@ -44,15 +44,15 @@
     </div>
 <!------------------------------------------------AFTER SUCCESSFUL LOG IN RENDER MAIN PAGE-------------------------------------------------->
 <!--Div below with the id "successfulLoginRender" default class will be "hide" until a successful log in-->
-<div id = "successfulLoginRender" class="successfulLoginRender">
+<div id = "successfulLoginRender" class="hide">
     <!-- RENDERED HEADER-->
         <div id ="header">
             <header>
                 <!-----Main Bar----->
                 <div id = "mainBar">
                     <h1 id = "logo">myPOMODORO</h1>
-                    <button id = "settingsbtn">Settings</button>
-                    <button id = "logoutbtn">Log Out</button>
+                    <button id = "settingsbtn" type = "button">Settings</button>
+                    <button id = "logoutbtn" type = "button">Log Out</button>
                 </div>
                 <!----Settings form----->
                 <div id = "settingContainer" class = "hide">
@@ -60,18 +60,18 @@
                     <form id = "settingForm" >
                         <div class = "settingGroup">
                             <label class = "settingLabel">Set Work Timer :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input class ="settingInput"type = "number" name = "startTimer" placeholder = "Min">
+                            <input id = "workTimerForm" class ="settingInput"type = "number" name = "startTimer" placeholder = "Min">
                         </div>
                         <div class = "settingGroup">
                             <label class = "settingLabel">Short Break Timer :</label>&nbsp;&nbsp;
-                            <input class ="settingInput"type = "number" name = "shortBreakTimer" placeholder = "Min">
+                            <input id = "shortBreakTimerForm" class ="settingInput"type = "number" name = "shortBreakTimer" placeholder = "Min">
                         </div>
                         <div class = "settingGroup">
                             <label class = "settingLabel">Long Break Timer :</label>&nbsp;&nbsp;&nbsp;
-                            <input class ="settingInput"type = "number" name = "longBreakTimer" placeholder = "Min">
+                            <input id = "longBreakTimerForm" class ="settingInput"type = "number" name = "longBreakTimer" placeholder = "Min">
                         </div>
                         <div class = "settingBtnGroup">
-                            <button id = "settingCancelBtn" class ="formClick">Cancel</button>
+                            <button id = "settingCancelBtn" class ="formClick" type = "button">Cancel</button>
                             <input  id ="submitSetting" class ="formClick" type = "submit" value = "Save Settings">
                         </div>
                     </form>
@@ -86,9 +86,9 @@
                 <div id = "timerChildContainer">
                     <!--Work stage options-->
                     <div id = "timerHeader">
-                        <span id = "workHeader"><h3>Work Timer</h3></span>
-                        <span id = "shortHeader"><h3>Short Break</h3></span>
-                        <span id = "longHeader"><h3>Long Break</h3></span>
+                        <button id = "workHeader" class = "timerHeaderBtn">Work Timer</button>
+                        <button id = "shortHeader"class = "timerHeaderBtn">Short Break</button>
+                        <button id = "longHeader" class= "timerHeaderBtn">Long Break</button>
                     </div>
                     <!--Pomodoro timer-->
                     <div id = "timerContainer">
@@ -149,11 +149,11 @@
                         <form id = "todoForm">
                             <textarea  id = "todoInput" placeholder= "Enter Your New Task" style ="height: 100px"></textarea>
                             <input type = "submit" id ="submitTodo" class ="formClick" value = "Add Task"/>
-                            <button id = "cancel" class ="formClick" class = "settingCancelBtn">Cancel</button>
+                            <button id = "cancel" class ="formClick" class = "settingCancelBtn"type = "button">Cancel</button>
                         </form>
                     </div>
                     <!--button to open task form-->
-                    <button id = "openAddTaskForm" class = "openAddTaskFormBtn"> + Add A New Task</button>
+                    <button id = "openAddTaskForm" class = "openAddTaskFormBtn" type = "button"> + Add A New Task</button>
                 </div>
             </div>
             <!--Spotify Playlist-->

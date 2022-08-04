@@ -71,8 +71,7 @@ document.querySelector('#submitLogin').addEventListener("click", (e) => {
 //variables for getDataFromOurServer
     let idName = 'None';
     let IdPassword = 'None';
-    let successLogin = false ;
-
+    let userData={};
 
 async function getDataFromOurServer() {
     let res = await fetch('http://localhost:3000/users');
@@ -107,7 +106,7 @@ async function getDataFromOurServer() {
         async function getdataForUser() {
         let res = await fetch(`http://localhost:3000/users/${idName}`);
         let dataForUser = await res.json() ;
-        console.log(dataForUser);
+        userData = await dataForUser
     }
     getdataForUser()
     } else {
@@ -116,11 +115,105 @@ async function getDataFromOurServer() {
 }
 
 
-
-
+// async function getDataForUser(id){
+//     let response = await fetch(`http://localhost:3000/users/${id}`);
+//     let data = await response.json()
+//     return data
+// }
+// async function storeDataForUser(){
+//     userData = await getDataForUser(idName)
+// }
+// storeDataForUser
+// console.log(userData)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //STARTING AND PAUSING TIMER
+//Settings event listeners
+    //grabbing elements for settings
+    let settingsbtn = document.querySelector('button#settingsbtn')
+    let settingsForm = document.querySelector("div#settingContainer")
+    let everythingUnderHeader = document.querySelector("div#hideAfterSettings")
+    let logoutbtn = document.querySelector('button#logoutbtn')
+    let settingsCancelBtn = document.querySelector('button#settingCancelBtn')
+
+    settingsbtn.addEventListener('mouseover', ()=>{
+        settingsbtn.style.color = "grey"
+    });
+    settingsbtn.addEventListener('mouseout', ()=>{
+        settingsbtn.style.color = "white"
+    });
+
+    logoutbtn.addEventListener('mouseover', ()=>{
+        logoutbtn.style.color = "grey"
+    });
+    logoutbtn.addEventListener('mouseout', ()=>{
+        logoutbtn.style.color = "white"
+    });
+
+    settingsbtn.addEventListener('click', ()=>{
+        settingsForm.setAttribute("class", "settingContainer")
+    })
+    settingsCancelBtn.addEventListener('click', ()=>{
+        settingsForm.setAttribute("class", "hide")
+    })
+
+    logoutbtn.addEventListener('click', ()=>{
+        window.location.reload()
+    })
+    //settings form
+    document.querySelector('#submitSetting').addEventListener("click", (e) => {
+        e.preventDefault()
+        changeSettings()})
+    
+    async function changeSettings() {
+            const workTimerForm = document.querySelector('#workTimerForm');
+            const shortBreakTimerForm = document.querySelector('#shortBreakTimerForm');
+            const longBreakTimerForm = document.querySelector('#longBreakTimerForm');
+        
+            objYourSettings = {
+                startWorkTimer: workTimerForm.value,
+                shortBreakTimer: shortBreakTimerForm.value,
+                longBreakTimer: longBreakTimerForm.value
+            }
+            document.querySelector('#workTimerMin').innerText = workTimerForm.value;
+            alert('Wow! You changed your settings!')
+    }
+    async function updateYourSettings(objYourSettings, yourId) {
+            let res = await fetch(`http://localhost:3000/users/ ${yourId}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(objYourSettings)
+            });
+            let data = await res.json() ;
+            console.log(data);
+    }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Timer header 
+//TODO:necessary elements
+    const workHeader = document.querySelector("#workHeader")
+    const shortHeader = document.querySelector("#shortHeader")
+    const longHeader = document.querySelector("#longHeader")
+    //mouseover event for spans
+    workHeader.addEventListener('mouseover', ()=>{
+        workHeader.style.color = "grey"
+    });
+    workHeader.addEventListener('mouseout', ()=>{
+        workHeader.style.color = "white"
+    });
+    shortHeader.addEventListener('mouseover', ()=>{
+        shortHeader.style.color = "grey"
+    });
+    shortHeader.addEventListener('mouseout', ()=>{
+        shortHeader.style.color = "white"
+    });
+    longHeader.addEventListener('mouseover', ()=>{
+        longHeader.style.color = "grey"
+    });
+    longHeader.addEventListener('mouseout', ()=>{
+        longHeader.style.color = "white"
+    });
+
+
+//STARTING AND PAUSING TIMER
         document.addEventListener("DOMContentLoaded", ()=>{
             //grabbing button elements and the timer
             let startBtn = document.querySelector('button#startTimer');
@@ -147,6 +240,8 @@ async function getDataFromOurServer() {
                 } else if(minute.innerText != 0 && seconds.innerText == 0){
                     seconds.innerText = 59;
                     minute.innerText --;
+                } else {
+                    alert("Work time has finished, proceed to short break")
                 };
             };
             //function to pause timer
